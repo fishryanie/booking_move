@@ -1,0 +1,21 @@
+header {z-index: 10;}
+.navbar-nav {border-color: rgba(255, 255, 255, 0.2) !important;}
+.nav-item {position: relative;}
+.nav-link {font-weight: 300; font-size: 14px;}
+.nav-item::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #fbbd61, #ec7532);
+    box-shadow: 0 0 20px 0 #fbbd61;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.nav-item:hover::after {
+    width: 100%;
+    transition: width 0.3s linear;
+}
+.nav-item.active::after {width: 100%;}
+
+

@@ -1,0 +1,14 @@
+article{background:linear-gradient(to top, #530044, #26001C)};
+.container{max-width: 1400px !important;}
+.sub_tab1{border-radius: 30px 50px 50px 0px; z-index: 3; background: yellow; transform: translateX(40%);box-shadow:3px 3px 0px 5px rgba(0,0,0,0.5)}
+.sub_tab2{border-radius: 30px 50px 50px 0px; z-index: 2; background: orangered; box-shadow:3px 3px 0px 5px rgba(0,0,0,0.5); transform: translateX(20%);}
+.sub_tab3{border-radius: 0px 20px 0px 0px; z-index: 1; background: orangered; transform: translateX(10%);}
+.sub_tab{color: #fff; padding: 10px 80px;font-size: 35px; font-weight: 500;}
+.tab {transform: translate(-50%,-50%); position: relative;top: 50%;left: 50%;}
+.Film {height: 400px; width: 100%; background: #C90C66; box-shadow:10px 10px 10px 0 rgba(0,0,0,0.3), 0 0 50px 0 rgba(0,0,0,0.4) inset}
+.Film img {height: 360px;}
+.Film .boder {background: rgba(255,255,255,0.6); box-shadow:5px 5px 0 rgba(0,0,0,0.5);}
+.Film p {max-height: 6.2rem; overflow: hidden;}
+.Film .booking{position: relative; bottom: 0%; left: 0;}
+.Film .booking .deital {background:rgba(0,0,0,0.5) ;border-radius: 0px 0px 0px 30px; padding: 15px 30px; position: absolute; left: 0px;}
+.Film .booking .ticket {background: orange; border-radius: 30px 0px 30px 30px; padding:15px 40px; position: absolute;left: 120px;}
