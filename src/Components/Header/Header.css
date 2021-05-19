@@ -11,10 +11,12 @@ header {z-index: 10;}
     position: absolute;
     bottom: 0;
     left: 0;
+   
 }
 .nav-item:hover::after {
     width: 100%;
     transition: width 0.3s linear;
+
 }
 .nav-item.active::after {width: 100%;}
 

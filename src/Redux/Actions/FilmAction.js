@@ -12,20 +12,57 @@ export const GetListFilm = () => {
         })
     }
 }
-export const LayThongTinPhimAction = (maPhim) => {
+export const CinemaSystem = () => {
     return async (dispatch) => {
-       try{
-        let result = await axios({
-            url:  `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
-            method:'GET'
-        });
-        // sau khi lát dl từ api về ta đưa dl lên reducer = dispatch
-        dispatch({
-            type: 'LAY_CHI_TIET_PHIM',
-            chiTietPhim: result.data
-        })
-       }catch(errors){
-            console.log(errors.data)
-       }
+        try {
+            let result = await axios({
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
+                method: 'GET'
+            });
+            dispatch({
+                type:'GET_CinemaSystem',
+                CinemaSystem: result.data
+            })
+        } catch (errors) {
+            console.log('errors',errors)
+        }
     }
+}
+export const layThongTinChiTietPhimAction = (maPhim) => {
+    return async (dispatch) => {
+        try {
+            let result = await axios({
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=0${maPhim}`,
+                method: 'GET'
+            });
+            dispatch({
+                type:'LAY_CHI_TIET_PHIM',
+                detail: result.data
+            })
+        } catch (errors) {
+            console.log('errors',errors)
+        }
+    }
+}
+export const layThongTinPhongVeAction = (maLichChieu) => {
+
+    return async (dispatch) =>{
+        try{
+            const result = await axios({
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+                method:'GET'
+            });
+
+            dispatch({
+                type:'LAY_THONG_TIN_PHONG_VE',
+                thongTinPhongVe:result.data
+
+            })
+
+        }catch (errors) {
+            console.log('errors',errors);
+        }
+
+    }
+
 }
