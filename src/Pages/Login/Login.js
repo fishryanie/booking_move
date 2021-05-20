@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import * as yup from 'yup';
 import {useDispatch, useSelector} from 'react-redux'
-import {withFormik, useFormik} from 'formik';
+import { useForm } from "react-hook-form";
 import { LoginAction } from '../../Redux/Actions/UserAction';
 import btnFB from"../../Assets/img/btn-FB.png"
 import btnGG from "../../Assets/img/btn-Google.png"
@@ -12,20 +12,19 @@ import  { NavLink } from 'react-router-dom';
 
 export default function Login() {
     const dispatch = useDispatch();
-    const {handleChange, handleSubmit, errors, handleBlur, touched, isValid} = useFormik({
-        initialValues: {
-            userName: '',
-            passWord:'',
-        },
-        validationSchema: yup.object().shape({
-            // taiKhoan: yup.string().required('Tài khoản không được bỏ trống!').min(6,'Tài khoản tối thiểu 6 ký tự!').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'email không hợp lệ'),
-            taiKhoan: yup.string().required('Tài khoản không được bỏ trống!').min(6,'Tài khoản tối thiểu 6 ký tự!'),
-            matKhau:yup.string().required('Mật khẩu không được bỏ trống !')
-        }),
-        onSubmit: (values) => {
-            dispatch(LoginAction(values));
-        }
-    })
+    const { register,  handleSubmit,  formState:{ errors }  } = useForm();
+    const onSubmit = (data) => {
+
+        console.log(data);
+        let userLogin = {
+                "taiKhoan": data.userName,
+                "matKhau": data.passWord
+        };
+        dispatch(LoginAction(userLogin));
+
+    }
+
+
     const Login = styled.div`
     background: url(${bgLogin});
     background-size: 100%;
@@ -38,17 +37,19 @@ export default function Login() {
         transform: translate(-50%,-50%)`
 
     return (
+
+
         <Login>
             <LoginContent>
                 <h1 className="text-center text-white">Đăng Nhập</h1>
-                <form className="p-3" onSubmit={handleSubmit}>
+                <form className="p-3" onSubmit={handleSubmit(onSubmit)}>
                     <div className="col-md-6 d-block mx-auto mb-3">
-                        <input className="form-control main rounded-pill px-3" type="text" placeholder="UserName" name="userName" onChange={handleChange} onBlur={handleBlur} />
-                        {errors.taiKhoan && touched.taiKhoan ? <p className="text-danger">{errors.taiKhoan}</p>: ''}
+                        <input className="form-control main rounded-pill px-3" placeholder="UserName"{...register("userName", {required:true})}  />
+                        {errors?.userName?.type === 'required' && <span className="text-danger ml-3">This field is required</span>}
                     </div>
                     <div className="col-md-6 d-block mx-auto mb-3">
-                        <input className="form-control main rounded-pill px-3" type="password" name="passWord" placeholder="PassWord" onChange={handleChange}onBlur={handleBlur} />
-                        {errors.matKhau && touched.matKhau ? <p className="text-danger">{errors.matKhau}</p>: ''}
+                        <input className="form-control main rounded-pill px-3" type="password" placeholder="PassWord" {...register("passWord",{required:true})}  />
+                        {errors?.passWord?.type === 'required' && <span className="text-danger ml-3">This field is required</span>}
                     </div>
                     <div className="col-md-6 d-block mx-auto mb-3">
                         <div className="row">
@@ -66,5 +67,6 @@ export default function Login() {
                 </form>
             </LoginContent>
         </Login>
+
     )
 }

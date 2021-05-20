@@ -11,6 +11,7 @@ export default function Booking(props) {
         let { id } = props.match.params
         dispatch(layThongTinPhongVeAction(id))
     }, [])
+    
     const Background = styled.section`
         background: rgba(0, 0, 0, 0.8);
         background-repeat: no-repeat;

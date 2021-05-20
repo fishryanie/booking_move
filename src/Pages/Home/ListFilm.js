@@ -18,8 +18,8 @@ export default function ListFilm() {
                 <section className="row mr-0">
                     {ArrayFilm?.map((item, index) => {
                         return (
-                            <div className="col-md-6 p-4" key={index} style={{}}>
-                                <div className="row mx-2 Film">
+                            <div className="col-12 col-md-6 p-4" key={index} style={{}}>
+                                <div className="row mx-2 Film" style= {{background:`linear-gradient( rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8)), url(${item.hinhAnh})`}}>
                                     <div className="col-6 p-3 .film-item-pic">
                                         <div className="boder p-1">
                                             <img src={item.hinhAnh} alt={item.hinhAnh} width="100%"/>

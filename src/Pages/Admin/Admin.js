@@ -1,49 +1,52 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import './acb.css'
-import bgLogin from '../../Assets/img/bg_login.jpeg'
-import { useDispatch, useSelector } from 'react-redux'
-import { GetListUser } from '../../Redux/Actions/UserAction'
+import React from 'react'
+import logo from '../../Assets/img/logo.svg'
+import { NavLink } from 'react-router-dom'
+
+import FilmManagement from './FilmManagement'
 export default function Admin() {
 
-
-    const listUser = useSelector(state => state.UserReducer.listUser)
-    console.log(listUser);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(GetListUser())
-    }, [])
-
-    let renderListContact = () => {
-        return listUser?.map((item, index) => {
-            return (
-                <tr key={index}>
-                    <td >{item.hoTen}</td>
-                    <td>{item.email}</td>
-                    <td>{item.soDt}</td>
-                    <td>{item.taiKhoan}</td>
-                    <td>{item.matKhau}</td>
-                </tr>
-            )
-        })
-    }
-    let bg = { background: 'linear-gradient(to top, #530044, #26001C)', backgroundSize: '100%' }
-    let style = { paddingTop: '200px' }
-
     return (
-        <section>
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                    <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+        <section className="">
+            <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                <div className="">
+                    <NavLink className="navbar-brand col-md-3 col-lg-2 mr-0 px-3" to="/"><img src={logo} alt="" /></NavLink>
+                    <button className="navbar-toggler position-absolute d-md-none collapsed bg-dark " style={{ right: '0', top: '10%' }} type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon" />
+                    </button>
                 </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                <input className="form-control form-control-dark w-100 rounded-pill" type="text" placeholder="Search" aria-label="Search" />
+                <ul className="navbar-nav px-3">
+                    <li className="nav-item text-nowrap"><a className="nav-link" href="#">Sign out</a></li>
+                </ul>
+            </header>
+
+            <div className="">
+                <div className="row w-100 m-0 vh-100">
+                    <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                        <div className="nav flex-column nav-pills mt-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a className="nav-link active white mb-2 text-white" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Quản lý phim</a>
+                            <a className="nav-link mb-2 text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Quản lý lịch chiếu</a>
+                            <a className="nav-link mb-2 text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Quản lý người dùng</a>
+                            <a className="nav-link mb-2 text-white" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                        </div>
+                    </nav>
+
+                        <div className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                            <div className="tab-content" id="v-pills-tabContent">
+                                <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                    <FilmManagement></FilmManagement>
+                                </div>
+                                <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                                <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                                <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                            </div>
+                        </div>
+
+
+
+                </div>
             </div>
+
         </section>
     )
 }

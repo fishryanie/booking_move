@@ -1,13 +1,13 @@
 .slider .carousel-item{background-size:cover; background-repeat: no-repeat; background-position: center center; height: 700px;}
-.slider .carousel-item-1{background-image: url(../../Assets/img/hero-1.jpg);}
-.slider .carousel-item-2{background-image: url(../../Assets/img/hero-2.jpg);}
-.slider .carousel-item-3{background-image: url(../../Assets/img/hero-3.jpg);}
+.slider .carousel-item-1{background-image: url(../../Assets/img/carouselOcsen.jpeg);}
+.slider .carousel-item-2{background-image: url(../../Assets/img/avenger.jpeg);}
+.slider .carousel-item-3{background-image: url(../../Assets/img/hero-1.jpg);}
 .slider .carousel-caption {
     left: 50%;
     top: 50%;
     bottom: initial;
     transform: translate(-50%, -50%);
-   
+
 }
 
   .slider .carousel-caption p {

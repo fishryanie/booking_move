@@ -65,25 +65,26 @@ export default function Detail(props) {
                                     <div class="col-9">
                                         <div class="tab-content" id="v-pills-tabContent">
                                         {chiTietPhim.heThongRapChieu?.map((heThongRap, index) => {
-                const activeClass = index === 0 ? 'show active' : '';
-                return (
-                    <div key={index} class={`tab-pane fade show mt-5 text-center ${activeClass}`} id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        {/* Load cụm rạp chiếu từ heThongRap.cumRapChieu */}
-                        {heThongRap.cumRapChieu?.map((cumRap, index) => {
-                            return <div key={index}>
-                                <h3 className="mb-3 mt-5 text-white">{cumRap.tenCumRap}</h3>
-                                <div className="row">
-                                    {cumRap.lichChieuPhim?.slice(0, 8).map((lichChieu, index) => {
-                                        return <NavLink to={`/booking /${lichChieu.maLichChieu}`} className="col-3 text-white">
-                                            {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
-                                        </NavLink>
-                                    })}
-                                </div>
-                            </div>
-                        })}
-                    </div>
-                )
-            })}
+                                            const activeClass = index === 0 ? 'show active' : '';
+                                            return (
+                                                <div key={index} class={`tab-pane fade show mt-5 text-center ${activeClass}`} id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                    {/* Load cụm rạp chiếu từ heThongRap.cumRapChieu */}
+                                                    {heThongRap.cumRapChieu?.map((cumRap, index) => {
+                                                        return <div key={index}>
+                                                            <h3 className="mb-3 mt-5 text-white">{cumRap.tenCumRap}</h3>
+                                                            <div className="row">
+                                                                {cumRap.lichChieuPhim?.slice(0, 8).map((lichChieu, index) => {
+                                                                    console.log(lichChieu.maLichChieu)
+                                                                    return <NavLink to={`/booking /${lichChieu.maLichChieu}`} className="col-3 text-white">
+                                                                        {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                                                                    </NavLink>
+                                                                })}
+                                                            </div>
+                                                        </div>
+                                                    })}
+                                                </div>
+                                            )
+                                        })}
                                         </div>
                                     </div>
                                 </div>

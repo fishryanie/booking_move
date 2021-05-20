@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Footer from '../../Pages/Footer/Footer';
+import background from '../../Assets/img/bg_login.jpeg'
 export default function Contact() {
     const Login = styled.div`
-    background:linear-gradient(to top, #530044, #26001C);
+    background : url(${background});
     background-size: 100%;
     height: 100vh;`
 
@@ -13,10 +14,10 @@ export default function Contact() {
         left: 50%;
         transform: translate(-50%,-50%)`
     return (
-        <section>
             <Login>
                 <LoginContent>
                     <section className="container p-5">
+                        <h1 className="text-center text-light mb-3">Contact us</h1>
                         <form className="row">
                             <div className="col-md-6 mb-3">
                                 <input className="form-control main rounded-pill" type="text" placeholder="Your Full Name" name="name" required />
@@ -37,8 +38,5 @@ export default function Contact() {
                     </section>
                 </LoginContent>
             </Login>
-            <Footer></Footer>
-        </section>
-
     )
 }

@@ -1,5 +1,6 @@
 import axios from 'axios';
-export const LoginAction = (user) => {//nguoiDung = {taiKhoan:'',matKhau:''}
+import {history} from '../../App'
+export const LoginAction = (user) => {//user = {taiKhoan:'', matKhau:''}
     return async (dispatch) => {
         try {
             const result = await axios({
@@ -7,15 +8,39 @@ export const LoginAction = (user) => {//nguoiDung = {taiKhoan:'',matKhau:''}
                 method:'POST',
                 data: user
             });
+            //Lấy giá trị api gửi về lưu vào localstorage
+            console.log('result:', result.data.maLoaiNguoiDung);
+            let chuyenTrang = result.data.maLoaiNguoiDung === "QuanTri" ? 'admin' : '' ; history.push(`/${chuyenTrang}`)
+
+            localStorage.setItem('accessToken', result.data.accessToken);
+            localStorage.setItem("taiKhoan", JSON.stringify(result.data));
             dispatch({
                 type:'LOGIN',
-                userName: result.data
+                userName: result.data.taiKhoan
             })
+
         }catch(errors) {
             console.log('errors',errors)
         }
     }
 }
+
+export const RegisterAction = (user) => {
+    return async () => {
+        try {
+            const result = await axios({
+                url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
+                method:'POST',
+                data: user
+            });
+            alert('Đăng kí thành công')
+            console.log(result);
+        }catch(errors) {
+            console.log('errors',errors)
+        }
+    }
+}
+
 export const GetListUser = () => {
     return async (dispatch) => {
         try {

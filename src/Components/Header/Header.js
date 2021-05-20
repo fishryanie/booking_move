@@ -7,7 +7,7 @@ export default function Header() {
     const {taiKhoan} = useSelector(state=>state.UserReducer);
     return (
         <header className="position-absolute top-0 start-0 w-100">
-            <div className="container pt-3">
+            <div className="container pt-3 text-center">
                 <a className="text-light text-right mb-0 d-block" href="#">
                     <i className="fa fa-phone" />
                     <span className="border-right pr-2 mx-2">033 4643 124</span>
@@ -27,9 +27,8 @@ export default function Header() {
                             <li className="nav-item px-3"><a className="nav-link text-light" href="#">NEWS</a></li>
                             <li className="nav-item px-3"><NavLink className="nav-link text-light" to="/contact">CONTACTS</NavLink></li>
                             <li className="nav-item px-3">
-                                {taiKhoan !== ''? <span className="nav-link">{taiKhoan}</span> : <NavLink className="nav-link text-light" to="/login">LOGIN</NavLink>}
+                            {taiKhoan !== ''? <span className="nav-link text-white">{taiKhoan}</span> : <NavLink className="nav-link text-light" to="/login">LOGIN</NavLink>}
                             </li>
-                            <li className="nav-item px-3"><NavLink className="nav-link text-light" to="/admin">ADMIN</NavLink></li>
                         </ul>
                     </div>
                 </nav>

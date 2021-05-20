@@ -25,8 +25,8 @@ export default function Carousel() {
                                 <span className="border rounded-circle mr-2">PG</span>
                                 <button className="text-white">
                                     <i className="fa fa-play" />
-              Play trailer
-            </button>
+                                                Play trailer
+                                                </button>
                             </div>
                         </div>
                     </div>
@@ -53,14 +53,11 @@ export default function Carousel() {
                     <div className="carousel-item carousel-item-3">
                         <div className="carousel-caption text-left container ">
                             <span className="text-warning">ACTION, ADVENTURE, FANTASY</span>
-                            <h1 className="text-white display-4 mb-2">
-                                End of the World: Part II
-          </h1>
-                            <p className="text-white">
+                            <h1 className="text-white display-4 mb-2">End of the World: Part II  </h1>
+                            <p className="row col- 6 text-white">
                                 Claritas est etiam processus dynamicus, qui sequitur mutationem
                                 consuetudium lectorum. Mirum est notare quam littera gothica,
-                                quam nunc putamus parum.
-          </p>
+                                quam nunc putamus parum.</p>
                             <div className="play d-flex align-items-center">
                                 <span className="border rounded-circle mr-2">PG</span>
                                 <button className="text-white">
