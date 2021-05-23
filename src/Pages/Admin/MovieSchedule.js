@@ -1,58 +1,76 @@
-import React from 'react'
-import './Admin.css'
-import { useSelector, useDispatch } from "react-redux"
-import {DeleteFilm} from '../../Redux/Actions/FilmAction'
-export default function FilmManagement() {
+import React,{useEffect} from 'react'
+import { useForm } from "react-hook-form";
+import { useSelector, useDispatch} from 'react-redux'
+import { GetListFilm } from "../../Redux/Actions/FilmAction"
+import { layThongTinChiTietPhimAction } from "../../Redux/Actions/FilmAction"
+// import {GetListUser} from '../../Redux/Actions/UserAction'
+export default function MovieSchedule() {
     const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
-    // const dispatch = useDispatch()
+    const chiTietPhim = useSelector(state => state.FilmReducers.DetailFilm.heThongRapChieu);
+    const { register,  handleSubmit,  formState:{ errors }  } = useForm();
+    const onSubmit = (data) => {
+        dispatch(layThongTinChiTietPhimAction(parseInt(data.maPhim)))
+    }
 
-    console.log(ArrayFilm)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(GetListFilm())
+    },[])
+
+    console.log( chiTietPhim);
     return (
         <div>
-            <section className="container-fluid">
-                <h2 className="mt-3">Danh Sách Phim</h2>
+             <section className="container-fluid">
+                <h2 className="mt-3">Danh sách lịch chiếu theo phim</h2>
                 <div class="row">
-                    <div class="col-8">
-                        <button id="btnThem" type="button" class="btn btn-warning mb-3 text-white" data-toggle="modal" data-target="#exampleModal">
-                            Thêm phim
-                            <i class='bx bx-cloud-upload bx-fade-up mx-2' style={{fontSize:'20px'}}></i>
+                    <div className="col-9">
+                        <form action="" onSubmit={handleSubmit(onSubmit)}>
+                            <select className="form-select form-select-sm btn btn-outline-secondary" aria-label=".form-select-sm example" {...register('maPhim')}>
+                                <option selected disabled>Chọn phim</option>
+                                {ArrayFilm.map((film, index) => {
+                                    return <option key = {index}value={film.maPhim}>{film.maPhim} {film.tenPhim}</option>
+                                })}
+                            </select>
+                            <button type='submit'></button>
+                        </form>
+                    </div>
+                    <div class="col-3 text-right">
+                        <button id="btnThem" type="button" class="btn btn-warning mb-3 font-weight-bold " data-toggle="modal" data-target="#exampleModal">
+                            <i class='bx bx-cloud-upload bx-fade-up mr-2' style={{fontSize:'20px'}}></i>Thêm lịch chiếu
                         </button>
                     </div>
+
+
                 </div>
                 <div class="table-responsive foodTable">
-                    <table class="table table-hover table-sm">
+                    <table class="table table-hover table-sm text-center">
                         <thead>
-                            <tr class="bg-warning text-center">
-                                <th>Mã phim</th>
-                                <th>Tên phim</th>
-                                <th>Bí danh</th>
-                                <th>Trailer</th>
-                                <th>Hình ảnh</th>
-                                <th>Mô tả</th>
-                                <th>Ngày khởi chiếu</th>
-                                <th>Đánh giá</th>
-                                <th>Xóa</th>
-                                <th>Chỉnh sửa</th>
-
+                            <tr class="bg-warning">
+                                <th>Mã lịch chiếu</th>
+                                <th>Mã rạp</th>
+                                <th>Tên rap</th>
+                                <th>Ngày giờ chiếu</th>
+                                <th>Giá vé</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody id="tbodyFood">
-                        {ArrayFilm?.map((item, index) => {
+                        {}
+
+                        {/* {listUser?.map((item, index) => {
                                 return (
                                     <tr key ={index}>
-                                        <td className="px-5"><span>{item.maPhim}</span></td>
-                                        <td className='px-5' style={{width:'500px'}}>{item.tenPhim}</td>
-                                        <td className='px-5'>{item.biDanh}</td>
-                                        <td className='px-5'>{item.trailer}</td>
-                                        <td className='px-5'><img src={item.hinhAnh} alt="" width='80' height="120"/> </td>
-                                        <td className='px-5'>{item.moTa}</td>
-                                        <td className='px-5'>{item.ngayKhoiChieu}</td>
-                                        <td className='px-5'>{item.danhGia}</td>
-                                        <td className="text-danger font-weight-bold text-center px-5"><i class='bx bxs-trash'style={{ fontSize: 30, cursor:'pointer' }} onClick={()=>{DeleteFilm(item.maPhim);console.log("click")}}/></td>
-                                        <td className="text-danger font-weight-bold text-center px-5"><i class='bx bxs-wrench'style={{ fontSize: 30, cursor:'pointer' }} onClick={()=>{DeleteFilm(item.maPhim)}}/></td>
+                                        <td className="">{item.hoTen}</td>
+                                        <td className=''>{item.soDt}</td>
+                                        <td className=''>{item.email}</td>
+                                        <td className=''>{item.taiKhoan}</td>
+                                        <td className=''>{item.matKhau}</td>
+                                        <td className="text-danger font-weight-bold text-center px-1"><i class='bx bxs-trash'style={{ fontSize: 30,cursor:'pointer' }}/></td>
+                                        <td className="text-primary font-weight-bold text-center px-5"> <i class='bx bxs-wrench'style={{ fontSize: 30,cursor:'pointer' }}/></td>
                                     </tr>
                                 )
-                        })}
+                        })} */}
                         </tbody>
                     </table>
                 </div>
@@ -115,7 +133,6 @@ export default function FilmManagement() {
                 </div>
             </div>
             </div>
-
         </div>
     )
 }

@@ -56,13 +56,20 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
             dispatch({
                 type:'LAY_THONG_TIN_PHONG_VE',
                 thongTinPhongVe:result.data
-
             })
-
         }catch (errors) {
             console.log('errors',errors);
         }
-
     }
-
+}
+export const DeleteFilm = (MaPhim) => {
+    axios({
+        url: `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${MaPhim}`,
+        method:'DELETE'
+    }).then((result) => {
+        console.log(result);
+        alert('Xóa thành công')
+    }).catch((errors) => {
+        console.log('errors',errors);
+    })
 }

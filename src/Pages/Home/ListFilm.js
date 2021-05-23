@@ -23,6 +23,13 @@ export default function ListFilm() {
                                     <div className="col-6 p-3 .film-item-pic">
                                         <div className="boder p-1">
                                             <img src={item.hinhAnh} alt={item.hinhAnh} width="100%"/>
+                                                <div class="detail">
+                                                    <a href={item.trailer}>
+                                                        <i className="fa fa-play text-light"></i>
+                                                    </a>
+                                                    <span className="text-white">Click to trailer</span>
+                                                    <span className="text-white"></span>
+                                                </div>
                                         </div>
                                     </div>
 

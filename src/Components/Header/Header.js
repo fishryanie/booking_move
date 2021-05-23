@@ -2,9 +2,13 @@ import React from 'react'
 import "./Header.css"
 import logo from "../../Assets/img/logo.svg"
 import { NavLink } from 'react-router-dom'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 export default function Header() {
     const {taiKhoan} = useSelector(state=>state.UserReducer);
+    const {loaiNguoiDung} = useSelector(state=>state.UserReducer);
+    console.log(loaiNguoiDung)
+    const dispatch = useDispatch();
+    // let active = 'active'
     return (
         <header className="position-absolute top-0 start-0 w-100">
             <div className="container pt-3 text-center">
@@ -22,13 +26,20 @@ export default function Header() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ml-auto border-bottom">
-                            <li className="nav-item active px-3"><NavLink className="nav-link text-light" to="/home"> HOME </NavLink></li>
-                            <li className="nav-item px-3"><a className="nav-link text-light" href="#">BOOKING</a></li>
+                            <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item"  to="/home"> HOME </NavLink></li>
+                            <li className="nav-item px-3"><a className="nav-link text-light nav-item" href="#">BOOKING</a></li>
                             <li className="nav-item px-3"><a className="nav-link text-light" href="#">NEWS</a></li>
-                            <li className="nav-item px-3"><NavLink className="nav-link text-light" to="/contact">CONTACTS</NavLink></li>
-                            <li className="nav-item px-3">
-                            {taiKhoan !== ''? <span className="nav-link text-white">{taiKhoan}</span> : <NavLink className="nav-link text-light" to="/login">LOGIN</NavLink>}
+                            <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item" to="/contact">CONTACTS</NavLink></li>
+                            <li className="nav-item px-3 active dropdown">
+                                {taiKhoan !== '' ? <NavLink to="" className="nav-link text-white dropdown-toggle"  id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">{taiKhoan}
+                                </NavLink> : <NavLink className="nav-link text-light " to="/login">LOGIN</NavLink>}
+                                <ul className="dropdown-menu bg-transparent" aria-labelledby="navbarScrollingDropdown" style={{border:'none'}} >
+                                    {loaiNguoiDung === 'QuanTri' ? <li className="nav-item mb-2"><NavLink className="nav-link dropdown-item text-white" to="/admin">Admin</NavLink></li> : null}
+                                    <li className="nav-item mb-2"><a className="nav-link dropdown-item text-white" href="#">QUẢN LÝ TÀI KHOẢN</a></li>
+                                    <li className="nav-item mb-2"><a className="nav-link dropdown-item text-white" onClick ={()=>{dispatch({type:'LOG_OUT'})}} href="#">ĐĂNG XUẤT</a></li>
+                                </ul>
                             </li>
+                            <li className="nav-item px-3"><a className="nav-link text-light" href="#">SITTING</a></li>
                         </ul>
                     </div>
                 </nav>

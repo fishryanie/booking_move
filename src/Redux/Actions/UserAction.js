@@ -8,17 +8,15 @@ export const LoginAction = (user) => {//user = {taiKhoan:'', matKhau:''}
                 method:'POST',
                 data: user
             });
-            //Lấy giá trị api gửi về lưu vào localstorage
-            console.log('result:', result.data.maLoaiNguoiDung);
-            let chuyenTrang = result.data.maLoaiNguoiDung === "QuanTri" ? 'admin' : '' ; history.push(`/${chuyenTrang}`)
-
             localStorage.setItem('accessToken', result.data.accessToken);
             localStorage.setItem("taiKhoan", JSON.stringify(result.data));
+            localStorage.setItem("loaiNguoiDung", JSON.stringify(result.data));
             dispatch({
                 type:'LOGIN',
-                userName: result.data.taiKhoan
+                userName: result.data.taiKhoan,
+                loaiNguoiDung: result.data.maLoaiNguoiDung
             })
-
+            let chuyenTrang = result.data.maLoaiNguoiDung === "QuanTri" ? 'admin' : '' ; history.push(`/${chuyenTrang}`)
         }catch(errors) {
             console.log('errors',errors)
         }

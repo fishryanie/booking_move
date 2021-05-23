@@ -11,22 +11,22 @@ export default function Detail(props) {
     useEffect(() => {
         let { id } = props.match.params;
         dispatch(layThongTinChiTietPhimAction(id))
-
     }, [])
     console.log('detail', chiTietPhim);
     const Login = styled.div`
-    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 9.5)), url(${chiTietPhim.hinhAnh});
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${chiTietPhim.hinhAnh});
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 200px;
     padding-top: 200px;`
 
+
     return (
         <Login>
             <section className="container">
                 <section className="row">
-                    <div className="col-md-5 mb-3">
-                        <img className="" src={chiTietPhim.hinhAnh} alt="" width="70%" style={{ height: "500px" }} />
+                    <div className="col-md-5 mb-5 text-center">
+                        <img className="w-75"style={{height:'500px'}}  src={chiTietPhim.hinhAnh} alt=""/>
                     </div>
                     <div className="col-md-7 mb-3">
                         <nav>
@@ -39,7 +39,7 @@ export default function Detail(props) {
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active text-white mt-5" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <div className="row">
-                                    <h2 className="col-12">{chiTietPhim.tenPhim}</h2>
+                                    <h2 className="col-12 mb-5">{chiTietPhim.tenPhim}</h2>
                                     <p className="col-4">Ngày khởi chiếu:</p>
                                     <p className="col-7">{chiTietPhim.ngayKhoiChieu}</p>
                                     <p className="col-4">Tác giả:</p>

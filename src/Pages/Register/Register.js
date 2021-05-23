@@ -15,19 +15,11 @@ export default function Register() {
         taiKhoan: yup.string().required('Không được để trống').max(20, 'Tối thiểu 20 kí tự'),
         matKhau: yup.string().required('Không được để trống').min(8, 'Mật khẩu không được thấp hơn 8 kí tự')
     });
+    
     const { register,  handleSubmit,  formState:{ errors }  } = useForm({resolver: yupResolver(SignupSchema)});
     const onSubmit = (data) => {
-        let duLieu = {
-            taiKhoan: data.taiKhoan,
-            matKhau: data.matKhau,
-            email: data.email,
-            soDt: data.soDt,
-            maNhom: 'GP01',
-            maLoaiNguoiDung: data.maLoaiNguoiDung,
-            hoTen: data.hoTen
-          }
-        RegisterAction(duLieu)
-        console.log(duLieu);
+        RegisterAction(data)
+        console.log(data);
     }
 
     const Register = styled.div`
