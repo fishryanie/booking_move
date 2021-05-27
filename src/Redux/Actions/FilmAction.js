@@ -64,12 +64,12 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
 }
 export const DeleteFilm = (MaPhim) => {
     axios({
-        url: `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${MaPhim}`,
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${MaPhim}`,
         method:'DELETE'
-    }).then((result) => {
+    }).then(result => {
         console.log(result);
         alert('Xóa thành công')
-    }).catch((errors) => {
+    }).catch(errors => {
         console.log('errors',errors);
     })
 }

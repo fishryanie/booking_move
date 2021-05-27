@@ -16,7 +16,7 @@ import coffee from "../../Assets/img/cinestar-coffee-02.png"
 import line  from "../../Assets/img/line-bg.png"
 import "./Footer.css"
 export default function Footer() {
-    const  heThongRap  = useSelector(state => state.FilmReducers.HeThongRap)
+    const  heThongRap  = useSelector(state => state.FilmReducers.CinemaSystem)
     const dispatch = useDispatch()
     useEffect(() => {dispatch(CinemaSystem())}, [])
     return (
@@ -26,7 +26,7 @@ export default function Footer() {
                 <section className="container pb-5 pt-5">
                     <div className="text-center mb-5" ><img src={logo} alt=""/></div>
                     <div className="row text-center">
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <h2 className="title">LIÊN KẾT</h2>
                             <div className="d-flex p-2">
                                 <a href="" className="facebook mx-1 p-1"><i class='bx bxl-facebook'></i></a>
@@ -35,11 +35,11 @@ export default function Footer() {
                             <h2 className="title">HOT LINE</h2>
                             <a href="" type="phone">0909 394 145</a>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-6 col-md-3 mb-3">
                             <h2 className="title">HỆ THỐNG RẠP</h2>
                             {heThongRap?.map((item, index) => <a className="text-white" key={index}>{item.tenHeThongRap}</a>)}
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2 mb-3">
                             <h2 className="title">FLEX CENEMA</h2>
                             <a href="">Phim đang chiếu</a>
                             <a href="">Phim sắp chiếu</a>
@@ -47,7 +47,7 @@ export default function Footer() {
                             <a href="">Lịch chiếu</a>
                             <a href="">Khuyến mãi</a>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <h2 className="title">THÔNG TIN</h2>
                             <a href="">Giới thiệu</a>
                             <a href="">Tin tức</a>
@@ -62,12 +62,14 @@ export default function Footer() {
                             <a href="">Thông tin công ty</a>
                         </div>
                     </div>
-                    <div className="mt-5">
-                        <img src={dolby} alt={dolby}/>
-                        <img src={crhistie} alt={crhistie}/>
-                        <img src={hai_D} alt={hai_D}/>
-                        <img src={ba_D} alt={ba_D}/>
-                        <img src={coffee} alt={coffee}/>
+                    <div className="container-fluid mt-5">
+                        <div className="d-flex justify-content-around">
+                            <div><img  src={dolby} alt={dolby} width="100%"/></div>
+                            <div> <img  src={crhistie} alt={crhistie}  width="100%"/></div>
+                            <div>     <img  src={hai_D} alt={hai_D}  width="100%"/></div>
+                            <div><img  src={ba_D} alt={ba_D}  width="100%"/></div>
+                            <div> <img  src={coffee} alt={coffee}  width="100%"/></div>
+                        </div>
                     </div>
                 </section>
 

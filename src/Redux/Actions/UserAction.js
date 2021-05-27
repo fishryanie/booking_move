@@ -24,20 +24,21 @@ export const LoginAction = (user) => {//user = {taiKhoan:'', matKhau:''}
 }
 
 export const RegisterAction = (user) => {
-    return async () => {
-        try {
-            const result = await axios({
-                url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
-                method:'POST',
-                data: user
-            });
-            alert('Đăng kí thành công')
-            console.log(result);
-        }catch(errors) {
-            console.log('errors',errors)
-        }
-    }
+    axios({
+        url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
+        method:'POST',
+        data: user
+    }).then(result => {
+        alert('Đăng kí thành công')
+        console.log(result);
+    }).catch(errors => {
+        console.log('errors',errors)
+    })
 }
+
+
+
+
 
 export const GetListUser = () => {
     return async (dispatch) => {

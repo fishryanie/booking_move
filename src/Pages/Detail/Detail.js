@@ -75,7 +75,7 @@ export default function Detail(props) {
                                                             <div className="row">
                                                                 {cumRap.lichChieuPhim?.slice(0, 8).map((lichChieu, index) => {
                                                                     console.log(lichChieu.maLichChieu)
-                                                                    return <NavLink to={`/booking /${lichChieu.maLichChieu}`} className="col-3 text-white">
+                                                                    return <NavLink to={`/booking/${lichChieu.maLichChieu}`} className="col-3 text-white">
                                                                         {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                                     </NavLink>
                                                                 })}

@@ -26,22 +26,18 @@ export default function Admin() {
                 <div className="row w-100 m-0 vh-100">
                     <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
                         <div className="nav flex-column nav-pills mt-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a className="nav-link nav-item active mb-2 text-white"  id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-film mr-2' style={{fontSize:'20px'}} ></i>Quản lý phim</a>
-                            <a className="nav-link nav-item mb-2 text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class='bx bx-camera-movie mr-2' style={{fontSize:'20px'}}></i>Quản lý lịch chiếu</a>
-                            <a className="nav-link nav-item mb-2 text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class='bx bxs-user-pin mr-2' style={{fontSize:'20px'}}></i>Quản lý người dùng</a>
+                            <a className="nav-link nav-item active mb-2 text-white"  id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-film mr-2' style={{fontSize:'20px'}} ></i>Quản lý người dùng</a>
+                            <a className="nav-link nav-item mb-2 text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class='bx bx-camera-movie mr-2' style={{fontSize:'20px'}}></i>Quản lý phim</a>
+                            <a className="nav-link nav-item mb-2 text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class='bx bxs-user-pin mr-2' style={{fontSize:'20px'}}></i>Quản lý lịch chiếu</a>
                             <a className="nav-link nav-item mb-2 text-white" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class='bx bxs-cog mr-2' style={{fontSize:'20px'}}></i>Settings</a>
                         </div>
                     </nav>
 
                         <div className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                             <div className="tab-content" id="v-pills-tabContent">
-                                <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                    <FilmManagement></FilmManagement>
-                                </div>
-                                <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><MovieSchedule></MovieSchedule>
-
-                                </div>
-                                <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><Member></Member></div>
+                                <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Member></Member></div>
+                                <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> <FilmManagement></FilmManagement></div>
+                                <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><MovieSchedule></MovieSchedule></div>
                                 <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
                             </div>
                         </div>

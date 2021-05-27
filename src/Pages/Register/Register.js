@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import bgLogin from '../../Assets/img/bg_login.jpeg'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
+
 import {RegisterAction} from '../../Redux/Actions/UserAction'
 export default function Register() {
 
@@ -15,11 +16,20 @@ export default function Register() {
         taiKhoan: yup.string().required('Không được để trống').max(20, 'Tối thiểu 20 kí tự'),
         matKhau: yup.string().required('Không được để trống').min(8, 'Mật khẩu không được thấp hơn 8 kí tự')
     });
-    
+
     const { register,  handleSubmit,  formState:{ errors }  } = useForm({resolver: yupResolver(SignupSchema)});
     const onSubmit = (data) => {
-        RegisterAction(data)
-        console.log(data);
+        let dataRegister = {
+            'taiKhoan': data.taiKhoan,
+            'matKhau': data.matKhau,
+            'email': data.email,
+            'soDt': data.soDt,
+            'maNhom': 'GP01',
+            'maLoaiNguoiDung': data.maLoaiNguoiDung,
+            "hoTen": data.hoTen,
+        }
+        RegisterAction(dataRegister);
+        console.log(dataRegister);
     }
 
     const Register = styled.div`

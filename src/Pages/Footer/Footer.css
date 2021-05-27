@@ -1,8 +1,8 @@
 .footer{
-    background: url(../../Assets/img/bg-footer.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-   
+    /* background: url(../../Assets/img/bg-footer.jpeg); */
+    /* background-repeat: no-repeat;
+    background-size: 100%; */
+
 
 }
 .footer a {
@@ -16,7 +16,7 @@
 .footer a:hover {color: orange; text-decoration: none;}
 .footer img:hover{opacity: 0.8;}
 .title{
-    background: rgba(255,255,255,0.1);;
+    background: rgba(255,255,255,0.4);;
     padding: 10px;
     font-size: 20px;
     color: #fff;
@@ -25,6 +25,6 @@
 .facebook{background: #4267b2; border-radius: 60%; width: 50%; font-size: 35px;}
 .youtube{background: red; border-radius: 60%;width: 50%; font-size: 35px;}
 
-.pay{background: #490039;}
+.pay{    background: linear-gradient(to right, #fbbd61, #ec7532);}
 .footer .thongBao{background: #000; font-size: 14px;}
 .footer .thongBao p {margin: 0;}

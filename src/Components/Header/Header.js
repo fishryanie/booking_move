@@ -27,9 +27,8 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ml-auto border-bottom">
                             <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item"  to="/home"> HOME </NavLink></li>
-                            <li className="nav-item px-3"><a className="nav-link text-light nav-item" href="#">BOOKING</a></li>
-                            <li className="nav-item px-3"><a className="nav-link text-light" href="#">NEWS</a></li>
                             <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item" to="/contact">CONTACTS</NavLink></li>
+                            <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item" to="/register">REGISTER</NavLink></li>
                             <li className="nav-item px-3 active dropdown">
                                 {taiKhoan !== '' ? <NavLink to="" className="nav-link text-white dropdown-toggle"  id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">{taiKhoan}
                                 </NavLink> : <NavLink className="nav-link text-light " to="/login">LOGIN</NavLink>}

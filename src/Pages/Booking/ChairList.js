@@ -13,6 +13,12 @@ export default function ChairList() {
         cursor: pointer;
         width: 40px;
         height: 40px;
+        @media screen and (max-width: 576px){
+            width: 25px;
+            height: 25px;
+            margin-left: .1rem !important;
+            margin-right: .1rem !important;
+        }
     `
 let renderChair = () => {
     return thongTinPhongVe.danhSachGhe?.map((chair, index) => {

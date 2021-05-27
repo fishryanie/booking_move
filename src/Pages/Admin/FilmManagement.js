@@ -48,7 +48,7 @@ export default function FilmManagement() {
                                         <td className='px-5'>{item.moTa}</td>
                                         <td className='px-5'>{item.ngayKhoiChieu}</td>
                                         <td className='px-5'>{item.danhGia}</td>
-                                        <td className="text-danger font-weight-bold text-center px-5"><i class='bx bxs-trash'style={{ fontSize: 30, cursor:'pointer' }} onClick={()=>{DeleteFilm(item.maPhim);console.log("click")}}/></td>
+                                        <td className="text-danger font-weight-bold text-center px-5"><i class='bx bxs-trash'style={{ fontSize: 30, cursor:'pointer' }} onClick={()=>{DeleteFilm(item.maPhim)}}/></td>
                                         <td className="text-danger font-weight-bold text-center px-5"><i class='bx bxs-wrench'style={{ fontSize: 30, cursor:'pointer' }} onClick={()=>{DeleteFilm(item.maPhim)}}/></td>
                                     </tr>
                                 )
