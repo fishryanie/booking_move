@@ -1,0 +1,89 @@
+.filmCarousel01 {
+	.card {
+		background-color: black;
+		-webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
+		box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
+		border-radius: 10px;
+		background-image: url(https://i.imgur.com/VqgIGmN.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 400px;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		border: none;
+		outline: none;
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			opacity: 0.8;
+		}
+		&:hover {
+			.card-spacing {
+				padding-top: 0px;
+			}
+		}
+	}
+	.card-spacing {
+		padding-top: 220px;
+		transition: padding 0.3s;
+		height: 100vh;
+	}
+	.card-content {
+		padding-top: 80px;
+		padding-left: 12px;
+		padding-right: 12px;
+		background: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 15% );
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+		height: 100vh;
+	}
+	h5 {
+		max-height: 1.5rem !important;
+		overflow: hidden !important;
+	}
+	.description {
+		font-size: 15px;
+		padding: 15px 0 0 0;
+		max-height: 5.6rem;
+		overflow: hidden;
+	}
+	.tagbox {
+		display: inline-block;
+		color: #000;
+		padding: 2px 5px;
+		border-radius: 5px;
+		font-size: 0.75rem;
+	}
+	.purple {
+		background-color: purple;
+		color: #fff;
+	}
+	.pink {
+		background-color: pink;
+	}
+	.cast-list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.cast-circle {
+		position: relative;
+		width: 50px;
+		height: 50px;
+		img {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			object-fit: cover;
+			border-radius: 50%;
+			border: white 3px solid;
+		}
+	}
+}

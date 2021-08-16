@@ -1,0 +1,107 @@
+.filmCarousel01 .card {
+  background-color: black;
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
+  border-radius: 10px;
+  background-image: url(https://i.imgur.com/VqgIGmN.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border: none;
+  outline: none;
+}
+
+.filmCarousel01 .card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.filmCarousel01 .card:hover .card-spacing {
+  padding-top: 0px;
+}
+
+.filmCarousel01 .card-spacing {
+  padding-top: 220px;
+  -webkit-transition: padding 0.3s;
+  transition: padding 0.3s;
+  height: 100vh;
+}
+
+.filmCarousel01 .card-content {
+  padding-top: 80px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(15%, rgba(0, 0, 0, 0.85)));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 15%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+  height: 100vh;
+}
+
+.filmCarousel01 h5 {
+  max-height: 1.5rem !important;
+  overflow: hidden !important;
+}
+
+.filmCarousel01 .description {
+  font-size: 15px;
+  padding: 15px 0 0 0;
+  max-height: 5.6rem;
+  overflow: hidden;
+}
+
+.filmCarousel01 .tagbox {
+  display: inline-block;
+  color: #000;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+
+.filmCarousel01 .purple {
+  background-color: purple;
+  color: #fff;
+}
+
+.filmCarousel01 .pink {
+  background-color: pink;
+}
+
+.filmCarousel01 .cast-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filmCarousel01 .cast-circle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.filmCarousel01 .cast-circle img {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: white 3px solid;
+}
+/*# sourceMappingURL=FilmSlider.css.map */

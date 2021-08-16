@@ -1,94 +1,88 @@
-import React, {useEffect} from 'react'
-import { useSelector,  useDispatch } from "react-redux"
-import { CinemaSystem } from "../../Redux/Actions/FilmAction"
-import logo from "../../Assets/img/logo.svg"
-import nappa from"../../Assets/img/napas-40.png"
-import masterCard from"../../Assets/img/payment-mastercard.png"
-import momo from"../../Assets/img/momo.jpeg"
-import zalo from"../../Assets/img/zalopay.png"
-import vissa from"../../Assets/img/payment-visa.png"
+import React from 'react'
+import styled from 'styled-components'
+import bg from '../../Assets/img/bg_login.jpeg'
+import line from "../../Assets/img/line-bg.png"
 import thongbao from "../../Assets/img/dathongbao.png"
-import dolby from "../../Assets/img/dolby2.png"
-import crhistie from "../../Assets/img/crhistie.png"
-import hai_D from "../../Assets/img/2d.jpeg"
-import ba_D from "../../Assets/img/3d.png"
-import coffee from "../../Assets/img/cinestar-coffee-02.png"
-import line  from "../../Assets/img/line-bg.png"
-import "./Footer.css"
+import masterCard from "../../Assets/img/payment-mastercard.png"
+import vissa from "../../Assets/img/payment-visa.png"
+import newslater from '../../Assets/img/newslater.jpeg'
+
 export default function Footer() {
-    const  heThongRap  = useSelector(state => state.FilmReducers.CinemaSystem)
-    const dispatch = useDispatch()
-    useEffect(() => {dispatch(CinemaSystem())}, [])
+    const Background = styled.div`
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${bg});
+        background-size: cover;
+        clip-path: polygon(50% 5%, 75% 11%, 100% 27%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 27%, 25% 11%);
+   `
+    const Contain01 = styled.div`
+        background:linear-gradient(to left, #5560ffb7 18%, #aa52a15d 65%, #ff43433f 100%), url(${newslater});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 30px;
+        top: 20%;
+    `
+    const Input = styled.input`
+        border-color: rgba(255, 255, 255, 0.5);
+        border-radius: 30px;
+        padding: 0px 20px;
+        background: none;
+        outline: none;
+        height: 50px;
+        width:100%;
+    `
     return (
-        <footer className="text-center">
-            <section className="footer">
-                <img className="mt-5" src={line} alt="" width="100%"/>
-                <section className="container pb-5 pt-5">
-                    <div className="text-center mb-5" ><img src={logo} alt=""/></div>
-                    <div className="row text-center">
-                        <div className="col-6 col-md-2">
-                            <h2 className="title">LIÊN KẾT</h2>
-                            <div className="d-flex p-2">
-                                <a href="" className="facebook mx-1 p-1"><i class='bx bxl-facebook'></i></a>
-                                <a href="" className="youtube mx-1 p-1"><i class='bx bxl-youtube' ></i></a>
+        <footer>
+            <section className="position-relative justify-content-center d-flex align-items-end w-100" style={{ height: '800px' }}>
+                <Background className="h-75 w-100">
+                    <div className="h-50"></div>
+                    <div className="h-50 position-relative container">
+                        <div></div>
+                        <div className="position-absolute" style={{ bottom: '0' }}>
+                            <div className="d-flex justify-content-around">
+                                <div className="col-6">
+                                    <img className="mb-3 d-block" src={thongbao} alt={thongbao} width='150' />
+                                    <div className="row justify-content-center">
+                                        <div className="col-md-6">Chấp nhận thanh toán</div>
+                                        <div className="col-md-6">
+                                            <img className="" src={vissa} alt={vissa}></img>
+                                            <img className="" src={masterCard} alt={masterCard}></img>
+                                        </div>
+                                    </div>
+                                 </div>
+                                <div className="col-6 row justify-content-around align-items-end colorIcon">
+                                    <div className="icon col-sm-4"><i class="fab fa-facebook-f bx-tada"></i></div>
+                                    <div className="icon col-sm-4"><i class="fab fa-twitter bx-tada"></i></div>
+                                    <div className="icon col-sm-4"><i class="fab fa-pinterest-p bx-tada"></i></div>
+                                    <div className="icon col-sm-4"><i class="fab fa-google bx-tada"></i></div>
+                                    <div className="icon col-sm-4"><i class="fab fa-instagram bx-tada"></i></div>
+                                    <div className="icon col-sm-4"><i class="fas fa-map-marked-alt bx-tada"></i></div>
+                                </div>
                             </div>
-                            <h2 className="title">HOT LINE</h2>
-                            <a href="" type="phone">0909 394 145</a>
-                        </div>
-                        <div className="col-6 col-md-3 mb-3">
-                            <h2 className="title">HỆ THỐNG RẠP</h2>
-                            {heThongRap?.map((item, index) => <a className="text-white" key={index}>{item.tenHeThongRap}</a>)}
-                        </div>
-                        <div className="col-6 col-md-2 mb-3">
-                            <h2 className="title">FLEX CENEMA</h2>
-                            <a href="">Phim đang chiếu</a>
-                            <a href="">Phim sắp chiếu</a>
-                            <a href="">Xuất chiếu đặc biệt</a>
-                            <a href="">Lịch chiếu</a>
-                            <a href="">Khuyến mãi</a>
-                        </div>
-                        <div className="col-6 col-md-2">
-                            <h2 className="title">THÔNG TIN</h2>
-                            <a href="">Giới thiệu</a>
-                            <a href="">Tin tức</a>
-                            <a href="">Hỏi và đáp</a>
-                            <a href="">Liên hệ</a>
-                        </div>
-                        <div className="col-md-3">
-                            <h2 className="title">CHÍNH SÁCH VÀ QUY ĐỊNH</h2>
-                            <a href="">Quy định chung</a>
-                            <a href="">Điều khoản và giao dịch</a>
-                            <a href="">Chính sách bảo mật</a>
-                            <a href="">Thông tin công ty</a>
+                            <img src={line} alt="" width="100%" />
+                            <div className="row justify-content-between p-3">
+                                <div className="col-md-12 col-lg-6">2021 © CINESTAR. ALL RIGHTS RESERVED.</div>
+                                <div className="col-md-12 col-lg-6">
+                                    <span className="mx-3">About</span>
+                                    <span className="mx-3">Terms Of Use</span>
+                                    <span className="mx-3">Privacy Policy</span>
+                                    <span className="mx-3">FAQ</span>
+                                    <span className="mx-3">Feedback</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="container-fluid mt-5">
-                        <div className="d-flex justify-content-around">
-                            <div><img  src={dolby} alt={dolby} width="100%"/></div>
-                            <div> <img  src={crhistie} alt={crhistie}  width="100%"/></div>
-                            <div>     <img  src={hai_D} alt={hai_D}  width="100%"/></div>
-                            <div><img  src={ba_D} alt={ba_D}  width="100%"/></div>
-                            <div> <img  src={coffee} alt={coffee}  width="100%"/></div>
-                        </div>
+                </Background>
+                <Contain01 className="position-absolute container text-center p-5">
+                    <h3 className="text-success">SUBSCRIBE TO BOLETO</h3>
+                    <h1 className="mb-3">TO GET EXCLUSIVE BENIFITS</h1>
+                    <div className="col-sm-12 col-md-10 col-lg-8 col-xl-7 mx-auto mb-4">
+                        <form className="position-relative">
+                            <Input placeholder="Enter Your Email" />
+                            <button className="btnSignInUp position-absolute px-4" style={{ right: '0', top: '0', height: '50px' }}>SUBSCRIBE</button>
+                        </form>
                     </div>
-                </section>
-
-                <section className="pay p-3">
-                    <p className="text-secondary">Chấp nhận thanh toán</p>
-                    <img className="px-2" src={nappa} alt={nappa}></img>
-                    <img className="px-2" src={vissa} alt={vissa}></img>
-                    <img className="px-2" src={masterCard} alt={masterCard}></img>
-                    <img className="px-2" src={zalo} alt={zalo}></img>
-                    <img className="px-2" src={momo} alt={momo}></img>
-                </section>
-
-                <section className="thongBao p-3">
-                    <img className="mb-3" src={thongbao} alt={thongbao}/>
-                    <p >CÔNG TY CỔ PHẦN GIẢI TRÍ PHÁT HÀNH PHIM – RẠP CHIẾU PHIM FLEX CINEMA</p>
-                    <p>ĐỊA CHỈ: 123/32/2 ĐƯỜNG SỐ 2, PHƯỜNG 15, QUẬN GÒ VẤP, TP.HCM</p>
-                    <p>GIẤY CNĐKDN SỐ: 0312742744, ĐĂNG KÝ LẦN ĐẦU NGÀY 18/04/2014, ĐĂNG KÝ THAY ĐỔI LẦN THỨ 2 NGÀY 15/09/2014, CẤP BỞI SỞ KH & ĐT TP.HCM</p>
-                    <p className="mt-3">2021 © CINESTAR. ALL RIGHTS RESERVED.</p>
-                </section>
+                    <p>We respect your privacy, so we never share your info</p>
+                </Contain01>
             </section>
         </footer>
     )

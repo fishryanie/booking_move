@@ -1,0 +1,78 @@
+
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.checkbox span {
+  font-style: italic;
+  font-size: 15px;
+}
+
+input:focus {
+  border-bottom: 1px solid #fcb503 !important;
+}
+input::placeholder {
+  font-size: 16px;
+  font-style: italic;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  font-size: 18px;
+  transform: translateY(-70%) !important;
+  visibility: hidden;
+  transform: scale(1.5);
+  margin-right: 27px;
+}
+
+input[type="checkbox"]:after {
+  content: " ";
+  background-color: rgb(248, 244, 244);
+  display: inline-block;
+  color: #f5f1f3;
+  width: 25px;
+  height: 25px;
+  visibility: visible;
+  border: 1px solid #fff;
+  padding: 0 5px;
+  margin: 2px 0;
+  border-radius: 8px;
+}
+
+input[type="checkbox"]:checked:after {
+  content: "\5247";
+  display: unset;
+  font-weight: bold;
+  color: rgb(21, 92, 62);
+  box-shadow: 0 0 15px 0 rgba(177, 221, 20, 0.897),
+    0 0 2px 0 rgba(243, 4, 4, 0.815);
+}
+.btnLogin:hover {box-shadow: 0px 5px 10px rgb(136, 33, 150) !important;}
+
+
+.icon i {
+  font-size: 40px;
+  cursor: pointer;
+}
+.icon i:hover {
+  transform: translateY(-10%) !important;
+}
+.icon i:nth-child(1) {
+  color: #4267b2;
+}
+.icon i:nth-child(2) {
+  color: #ea4335;
+}
+.icon i:nth-child(3) {
+  color: #1da1f2;
+}
+
+@media screen and (max-width: 600px) {
+  .login {
+    align-items: flex-end !important;
+    padding: 20px !important;
+  }
+  .login > div {
+    padding: 20px !important;
+  }
+}

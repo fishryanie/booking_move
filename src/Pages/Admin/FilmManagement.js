@@ -1,5 +1,4 @@
 import React from 'react'
-import './Admin.css'
 import { useSelector, useDispatch } from "react-redux"
 import {DeleteFilm} from '../../Redux/Actions/FilmAction'
 export default function FilmManagement() {

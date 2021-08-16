@@ -1,12 +1,13 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
-import bgLogin from '../../Assets/img/bg_login.jpeg'
+import { NavLink } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import * as yup from 'yup';
 
-import {RegisterAction} from '../../Redux/Actions/UserAction'
+import { RegisterAction } from '../../Redux/Actions/UserAction'
 export default function Register() {
 
     const SignupSchema = yup.object().shape({
@@ -17,7 +18,7 @@ export default function Register() {
         matKhau: yup.string().required('Không được để trống').min(8, 'Mật khẩu không được thấp hơn 8 kí tự')
     });
 
-    const { register,  handleSubmit,  formState:{ errors }  } = useForm({resolver: yupResolver(SignupSchema)});
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(SignupSchema) });
     const onSubmit = (data) => {
         let dataRegister = {
             'taiKhoan': data.taiKhoan,
@@ -31,54 +32,69 @@ export default function Register() {
         RegisterAction(dataRegister);
         console.log(dataRegister);
     }
-
-    const Register = styled.div`
-    background: url(${bgLogin});
-    background-size: 100%;
-    height: 100vh;`
-
     const RegisterContent = styled.div`
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%)`
+        width: 100%;
+        max-width: 700px;
+        margin: 100px auto;
+        padding: 40px 20px;
+        background: rgba(0,0,0,0.6);
+        border-radius:10px;
+        box-shadow: 0 0 10px 5px #173d65;`
 
     return (
-        <Register>
-            <RegisterContent>
-                <section className="container">
-                    <h1 className="text-white text-center">Register</h1>
-                    <form className="row p-3" onSubmit = {handleSubmit(onSubmit)}>
-                        <div className="col-md-6 mb-3">
-                            <input className="form-control main rounded-pill" placeholder="Your Full Name" {...register('hoTen')} />
-                                {errors.hoTen &&  <span className="text-danger ml-3">{errors.hoTen.message}<i class='bx bx-message-error mx-2'></i></span>}
-                        </div>
-                        <div className="col-md-6 mb-3">
-                            <input className="form-control main rounded-pill" placeholder="Your Phone Number" {...register('soDt')} />
-                            {errors.soDt &&  <span className="text-danger ml-3">{errors.soDt.message}<i class='bx bx-message-error mx-2'></i></span>}
-                        </div>
-                        <div className="col-md-6 mb-3">
-                            <input className="form-control main rounded-pill" placeholder="Your Email Address" {...register('email' )} />
-                            {errors.email &&  <span className="text-danger ml-3">{errors.email.message}<i class='bx bx-message-error mx-2'></i></span>}
-                        </div>
-                        <div className="col-md-6 mb-3">
-                            <select class="form-control rounded-pill" {...register('maLoaiNguoiDung')}>
-                                <option value={'KhachHang'}>Thành viên</option>
-                                <option value={'QuanTri'}>Quản trị viên</option>
-                            </select>
-                        </div>
-                        <div className="col-md-12 mb-3">
-                            <input className="form-control main rounded-pill" type="text" placeholder="UserName" {...register('taiKhoan' )} />
-                            {errors.taiKhoan &&  <span className="text-danger ml-3">{errors.taiKhoan.message}<i class='bx bx-message-error mx-2'></i></span>}
-                        </div>
-                        <div className="col-md-12 mb-3">
-                            <input className="form-control main rounded-pill" type="password" placeholder="Password" {...register('matKhau' )} />
-                            {errors.matKhau &&  <span className="text-danger ml-3">{errors.matKhau.message}<i class='bx bx-message-error mx-2'></i></span>}
-                        </div>
-                        <div className="col-12 text-center"><button type="submit" className="btn btn-primary fs-5 px-5">Sign in</button></div>
-                    </form>
-                </section>
+        <section className="backgroundLogin_register">
+            <RegisterContent className="animate__animated animate__backInDown">
+                <h3 className="text-center text-success">WELLCOME TO</h3>
+                <h1 className="text-center text-white mb-5">FLEX CINEMA</h1>
+                <form className="row p-3" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="col-md-6 mb-5">
+                        <label>FULL NAME <span className="text-danger mb-2">*</span></label>
+                        <input className="inputSignInUp" placeholder="Enter @Your Full Name" {...register('hoTen')} />
+                        {errors.hoTen && <span className="text-danger ">{errors.hoTen.message}<i class='bx bx-message-error mx-2'></i></span>}
+                    </div>
+                    <div className="col-md-6 mb-5">
+                        <label>PHONE NUMBER <span className="text-danger mb-2">*</span></label>
+                        <input className="inputSignInUp" placeholder="Enter @Your Phone Number" {...register('soDt')} />
+                        {errors.soDt && <span className="text-danger ">{errors.soDt.message}<i class='bx bx-message-error mx-2'></i></span>}
+                    </div>
+                    <div className="col-md-6 mb-5">
+                        <label>EMAIL<span className="text-danger mb-2">*</span></label>
+                        <input className="inputSignInUp" placeholder="Enter @Your Email Address" {...register('email')} />
+                        {errors.email && <span className="text-danger ">{errors.email.message}<i class='bx bx-message-error mx-2'></i></span>}
+                    </div>
+                    <div className="col-md-6 mb-5">
+                        <label>KIND OF PERSON <span className="text-danger mb-2">*</span></label>
+                        <select className="inputSignInUp" {...register('maLoaiNguoiDung')}>
+                            <option value={'KhachHang'}>Thành viên</option>
+                            <option value={'QuanTri'}>Quản trị viên</option>
+                        </select>
+                    </div>
+                    <div className="col-md-12 mb-5">
+                        <label>USER NAME <span className="text-danger mb-2"> *</span></label>
+                        <input className="inputSignInUp" type="text" placeholder="Enter@ Your UserName" {...register('taiKhoan')} />
+                        {errors.taiKhoan && <span className="text-danger ">{errors.taiKhoan.message}<i class='bx bx-message-error mx-2'></i></span>}
+                    </div>
+                    <div className="col-md-12 mb-4">
+                        <label>PASS WORD <span className="text-danger mb-2">*</span></label>
+                        <input className="inputSignInUp" type="password" placeholder="Enter@ Your Password" {...register('matKhau')} />
+                        {errors.matKhau && <span className="text-danger ">{errors.matKhau.message}<i class='bx bx-message-error mx-2'></i></span>}
+                    </div>
+                    <div className="pl-3 mb-5">
+                        <span style={{ fontSize: '16px' }}><input className="" type="checkbox" />I Agree To The <span className="text-success">Terms, Privacy Policy</span> And <span className="text-success">Fees</span></span>
+                    </div>
+                    <div className="col-12 text-center mb-4"><button type="submit" className="btnSignInUp">Sign up</button></div>
+                    <div className="col-12 text-center mb-4">Already have an account? <NavLink className='text-success' to={"/register"}>Login now </NavLink></div>
+                    <div className="col-12 d-flex"><hr /><div className=" text-center px-5">OR</div><hr />
+                    </div>
+
+                    <div className="col-12 icon text-center mt-3">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-google-plus-square mx-5"></i>
+                        <i class="fab fa-twitter-square"></i>
+                    </div>
+                </form>
+
             </RegisterContent>
-        </Register>
+        </section>
     )
 }

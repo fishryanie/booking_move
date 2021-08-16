@@ -1,14 +1,15 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
-import Carousel from './Carousel'
-import ListFilm from './ListFilm'
-import bg from '../../Assets/img/bg_login.jpeg'
+import BannerCarousel from '../Carousel/BannerCarousel'
+import Flim from './Flim'
+import FilmSlider from '../Carousel/FilmSlider'
 export default function Home() {
     return (
-        <div style ={{background: `url(${bg})`}}>
-           <Carousel></Carousel>
-           <ListFilm></ListFilm>
+        <section>
+           <BannerCarousel title = 'Home' content ='Home content'></BannerCarousel>
+            <Flim></Flim>
+            <FilmSlider></FilmSlider>
            <Footer></Footer>
-        </div>
+        </section>
     )
 }
