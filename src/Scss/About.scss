@@ -1,0 +1,57 @@
+.about{
+  color: #fff;
+  .about_content7 {
+    padding-top: 120px;
+    padding-bottom: 50px;
+    background: #001232;
+    background-size: 100%;
+    .bg_thumb {
+      height: 550px;
+      background: url(../Assets/Images/ImgAbout/tour.png);
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: contain;
+    }
+    .borderImage{
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      max-width: 70px;
+      height: 70px;
+      padding: 13px;
+      border-radius: 40px;
+      
+    }
+    h1{font-size: 45px;}
+  
+  }
+  .philosophy{
+    padding:5px 150px 5px 0px;
+    .philosophy_bg{
+      width:100%;
+      background:url(../Assets/Images/ImgAbout/about-bg.jpeg);
+      background-repeat: no-repeat;
+      background-position: center center ;
+      background-size: cover;
+      padding: 100px 0px;
+      .borderImage{
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        max-width: 65px;
+        height: 65px;
+        padding:15px 8px;
+        border-radius: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .about{
+    .about_content7 {
+      padding-left: 10px;
+      padding-right: 10px;
+      .bg_thumb {
+        background: none !important;
+      }
+      h1{font-size: 35px;}
+    }
+  }
+}

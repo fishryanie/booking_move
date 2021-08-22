@@ -5,11 +5,11 @@ import Flim from './Flim'
 import FilmSlider from '../Carousel/FilmSlider'
 export default function Home() {
     return (
-        <section>
-           <BannerCarousel title = 'Home' content ='Home content'></BannerCarousel>
-            <Flim></Flim>
-            <FilmSlider></FilmSlider>
-           <Footer></Footer>
+        <section style={{ background: "#001232" }}>
+          <BannerCarousel title = 'Home' content ='Home content'></BannerCarousel>
+          <Flim></Flim>
+          <FilmSlider></FilmSlider>
+          <Footer></Footer>
         </section>
     )
 }

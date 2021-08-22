@@ -5,7 +5,7 @@ hr {border-top: 2px solid #fff; width: 100%;}
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./Assets/img/bg_login.jpeg);
+    background: url(./Assets/Images/bg_login.jpeg);
     background-size: contain;
     font-size:18px;
     padding-top: 50px;

@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Router, Switch } from 'react-router-dom'
 import {createBrowserHistory} from 'history'
 import  {HomeTemplate}  from './Template/HomeTemplate'
 import { AdminTemplate } from './Template/AdminTemplate';
+import About from './Pages/About/About'
 import Home from './Pages/Home/Home';
 import Contact from './Pages/Contact/Contact';
 import Detail from './Pages/Detail/Detail';
-import Login from './Pages/Login/Login';
+import Login from './Pages/Login-Register/Login';
 import Booking from'./Pages/Booking/Booking';
-import Register from './Pages/Register/Register';
+import Register from './Pages/Login-Register/Register';
 import Admin from './Pages/Admin/Admin';
 import FilmManagement from './Pages/Admin/FilmManagement';
 export const history =  createBrowserHistory();
@@ -20,6 +21,7 @@ function App() {
             <section className="App" >
                 <Switch>
                     <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
+                    <HomeTemplate exact path="/about" Component={About}></HomeTemplate>
                     <HomeTemplate exact path="/contact" Component={Contact}></HomeTemplate>
                     <HomeTemplate exact path="/detail/:id" Component={Detail}></HomeTemplate>
                     <HomeTemplate exact path="/booking/:id" Component={Booking}></HomeTemplate>

@@ -1,47 +1,54 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { GetListFilm } from "../../Redux/Actions/FilmAction"
-import './film.css'
+import moment from "moment"
+import '../../Scss/ListFilm.scss'
 export default function Flim() {
-    const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
-    console.log(ArrayFilm)
-    const dispatch = useDispatch();
-    useEffect(() => { dispatch(GetListFilm()) }, [])
-    return (
-        <section className="mainFilm">
-            <section className="container">
-                <section className="row">
-                    <section className="col-md-4"></section>
-                    <section className="itemFilm col-md-8">
-                        {ArrayFilm?.map((item, index) => {
-                            return (
-                                <section className="col-12 p-3" key={index}>
-                                    <div className="movie_card" id="bright">
-                                        <div className="info_section">
-                                            <div className="movie_header">
-                                                <img className="locandina" src={item.hinhAnh} width="100" height="200" />
-                                                <h2>{item.tenPhim}</h2>
-                                                <h4>2017, David Ayer</h4>
-                                                <span className="minutes">117 min</span>
-                                                <p className="type">Action, Crime, Fantasy</p>
-                                            </div>
-                                            <div className="movie_desc"><p className="text">{item.moTa}</p></div>
-                                            <div className="movie_social">
-                                                <ul>
-                                                    <li><i className="material-icons">share</i></li>
-                                                    <li><i className="material-icons"></i></li>
-                                                    <li><i className="material-icons">chat_bubble</i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div className="blur_back bright_back" style={{ background: `url(${item.hinhAnh})` }} />
-                                    </div>
-                                </section>
-                            )
-                        })}
-                    </section>
-                </section>
+  const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
+  console.log(ArrayFilm)
+  const dispatch = useDispatch();
+  useEffect(() => { dispatch(GetListFilm()) }, [])
+
+  return (  
+    <section className="book-store">
+      <div className="book-cards">
+        {ArrayFilm.map((item, index) =>(
+          <div className="book-card" key={index}>
+            <div className="position-absolute" style={{bottom:'0',left:'0'}}>
+              <i class='bx bxs-share-alt pl-1'></i>
+              <i class='bx bxs-heart px-2'></i>
+              <i class='bx bx-film'></i>
+            </div>
+            <div className="content-wrapper">
+            
+              <div className="menu-icon"><i class='bx bx-dots-vertical d-block p-2'></i></div>
+              <img className="book-card-img" src={item.hinhAnh}/>
+              <div className="card-content">
+                <h3>{item.tenPhim}</h3>
+                <div className="tags">
+                  <div className="tagbox purple mr-2">
+                    {moment(item.ngayKhoiChieu).format("dddd")}
+                  </div>
+                  <div className="tagbox pink">
+                    {moment(item.ngayKhoiChieu).format("l LT")}
+                  </div>
+                </div>
+                <div className="rating mt-2">
+                  <span className="pr-3">⭐ ⭐ ⭐ ⭐ ⭐ </span>
+                  <span style={{fontSize:'12px',fontStyle:'italic'}}>(1.987 voters)</span>
+                </div>
+                <p className="card-sum book-sum">{item.moTa}</p>
+              </div>
+            </div>
+            <section class="btnFilm">
+              <span>
+                <a><i class="fas fa-calendar-day px-2"></i>Chi tiết</a>
+                <a><i class="fas fa-ticket-alt px-2"></i>Mua vé</a>
+              </span>
             </section>
-        </section>
-    )
+          </div>
+        ))}    
+      </div>
+    </section>
+  )
 }

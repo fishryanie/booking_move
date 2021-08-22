@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Header.css"
-import logo from "../../Assets/img/logo.svg"
+import logo from "../../Assets/Images/logo.svg"
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 export default function Header() {

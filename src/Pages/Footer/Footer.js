@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import bg from '../../Assets/img/bg_login.jpeg'
-import line from "../../Assets/img/line-bg.png"
-import thongbao from "../../Assets/img/dathongbao.png"
-import masterCard from "../../Assets/img/payment-mastercard.png"
-import vissa from "../../Assets/img/payment-visa.png"
-import newslater from '../../Assets/img/newslater.jpeg'
+import bg from '../../Assets/Images/bg_login.jpeg'
+import line from "../../Assets/Images/line-bg.png"
+import thongbao from "../../Assets/Images/dathongbao.png"
+import masterCard from "../../Assets/Images/payment-mastercard.png"
+import vissa from "../../Assets/Images/payment-visa.png"
+import newslater from '../../Assets/Images/newslater.jpeg'
 
 export default function Footer() {
     const Background = styled.div`

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import styled from 'styled-components'
 import * as yup from 'yup';
@@ -28,7 +29,6 @@ export default function Login() {
         background: rgba(0,0,0,0.6);
         border-radius:10px;
         box-shadow: 0 0 10px 5px #173d65;
-
     `
     const BtnLodgin = styled.button`
         background: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
