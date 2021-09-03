@@ -44,6 +44,7 @@ export const layThongTinChiTietPhimAction = (maPhim) => {
     }
   };
 };
+
 export const layThongTinPhongVeAction = (maLichChieu) => {
   return async (dispatch) => {
     try {
@@ -61,6 +62,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
     }
   };
 };
+
 export const DeleteFilm = (MaPhim) => {
   axios({
     url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${MaPhim}`,

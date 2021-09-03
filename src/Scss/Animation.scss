@@ -1,0 +1,114 @@
+@-webkit-keyframes colorTwitter {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #3aaae1;
+  }
+}
+@keyframes colorTwitter {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #3aaae1;
+  }
+}
+@-webkit-keyframes colorFacebook {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #3b5998;
+  }
+}
+@keyframes colorFacebook {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #3b5998;
+  }
+}
+@-webkit-keyframes colorGoogle {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #dd4b39;
+  }
+}
+@keyframes colorGoogle {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #dd4b39;
+  }
+}
+@-webkit-keyframes colorPinterest {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #cb2027;
+  }
+}
+@keyframes colorPinterest {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #cb2027;
+  }
+}
+@-webkit-keyframes colorLinkedin {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #007bb6;
+  }
+}
+@keyframes colorLinkedin {
+  from {
+    stroke: #ffffff;
+  }
+  to {
+    stroke: #007bb6;
+  }
+}
+@-webkit-keyframes outWaveIn {
+  to {
+    stroke-width: 10px;
+    stroke-dasharray: 400;
+  }
+}
+@keyframes outWaveIn {
+  to {
+    stroke-width: 10px;
+    stroke-dasharray: 400;
+  }
+}
+@-webkit-keyframes outWaveOut {
+  from {
+    stroke-width: 10px;
+    stroke-dasharray: 400;
+  }
+  to {
+    stroke: #ffffff;
+    stroke-width: 5px;
+    stroke-dasharray: 40;
+  }
+}
+@keyframes outWaveOut {
+  from {
+    stroke-width: 10px;
+    stroke-dasharray: 400;
+  }
+  to {
+    stroke: #ffffff;
+    stroke-width: 5px;
+    stroke-dasharray: 40;
+  }
+}  

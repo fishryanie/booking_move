@@ -6,30 +6,30 @@ import thongbao from "../../Assets/Images/dathongbao.png"
 import masterCard from "../../Assets/Images/payment-mastercard.png"
 import vissa from "../../Assets/Images/payment-visa.png"
 import newslater from '../../Assets/Images/newslater.jpeg'
-
+const Background = styled.div`
+background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${bg});
+background-size: cover;
+clip-path: polygon(50% 5%, 75% 11%, 100% 27%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 27%, 25% 11%);
+`
+const Contain01 = styled.div`
+background:linear-gradient(to left, #5560ffb7 18%, #aa52a15d 65%, #ff43433f 100%), url(${newslater});
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+border-radius: 30px;
+top: 20%;
+`
+const Input = styled.input`
+border-color: rgba(255, 255, 255, 0.5);
+border-radius: 30px;
+padding: 0px 20px;
+background: none;
+outline: none;
+height: 50px;
+width:100%;
+`
 export default function Footer() {
-    const Background = styled.div`
-        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${bg});
-        background-size: cover;
-        clip-path: polygon(50% 5%, 75% 11%, 100% 27%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 27%, 25% 11%);
-   `
-    const Contain01 = styled.div`
-        background:linear-gradient(to left, #5560ffb7 18%, #aa52a15d 65%, #ff43433f 100%), url(${newslater});
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 30px;
-        top: 20%;
-    `
-    const Input = styled.input`
-        border-color: rgba(255, 255, 255, 0.5);
-        border-radius: 30px;
-        padding: 0px 20px;
-        background: none;
-        outline: none;
-        height: 50px;
-        width:100%;
-    `
+   
     return (
         <footer>
             <section className="position-relative justify-content-center d-flex align-items-end w-100" style={{ height: '800px' }}>

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import FilmManagement from './FilmManagement'
 import Member from './Member'
 import MovieSchedule from './MovieSchedule'
+import SettingsPanel from './SettingsPanel'
 export default function Admin() {
     const dispatch = useDispatch();
     return (
@@ -16,7 +17,7 @@ export default function Admin() {
                         <span className="navbar-toggler-icon" />
                     </button>
                 </div>
-                <input className="form-control form-control-dark w-100 rounded-pill" type="text" placeholder="Search" aria-label="Search" />
+                <input className="form-control form-control-dark w-100 rounded" type="text" placeholder="Search" aria-label="Search" />
                 <ul className="navbar-nav px-3">
                     <li className="nav-item text-nowrap"><NavLink className="nav-link" to="/login"  onClick ={()=>{dispatch({type:'LOG_OUT'})}}>Sign out</NavLink></li>
                 </ul>
@@ -38,7 +39,7 @@ export default function Admin() {
                                 <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Member></Member></div>
                                 <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> <FilmManagement></FilmManagement></div>
                                 <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><MovieSchedule></MovieSchedule></div>
-                                <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                                <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><SettingsPanel></SettingsPanel></div>
                             </div>
                         </div>
 

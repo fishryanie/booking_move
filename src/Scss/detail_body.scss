@@ -1,0 +1,153 @@
+.detail_body{
+  .Applicable_Offer{
+    h3{@media (max-width: 992px) {padding: 5px 15px;}}
+    ul {
+      li {
+        a {
+          padding: 5px 20px;
+          font-size: 12px;
+          border: 1px solid rgba(163, 177, 198, 0.2);
+          border-radius: 15px;
+          text-transform: uppercase;
+          color: #becdff;
+        }
+        list-style: none;
+        padding: 10px;
+      } 
+      display: flex;
+      flex-wrap: wrap;
+      margin: -10px;
+      padding: 0;
+      @media (max-width: 992px) {padding: 5px 15px;}
+    }
+  
+    .Offers{
+      .offer01, .offer02, .offer03 {
+        h6{
+          font-size: 16px;
+          font-weight: 400;
+          font-family: "Open Sans", sans-serif;
+          @media (min-width: 576px) {margin-top: -5px; font-size: 18px;}
+        }
+        p {
+          color: #9aace5;
+          font-size: 13px;
+          line-height: 18px;
+        }
+        border: 1px dashed #1f3253;
+        border-radius: 10px;
+        padding: 20px 20px 28px;
+        margin-bottom: 30px;
+        @media (max-width: 992px) {width: 30%;}
+        @media (max-width: 576px) {width: 100%;  padding: 10px}
+      }
+      @media (max-width: 992px) {display: flex; justify-content: space-around;}
+      @media (max-width: 576px) {display: block;}
+    } 
+  }
+
+
+
+  // nav-pill
+  #nav-tab {
+    .nav-tab-content {
+      i {font-size: 25px; transform: translateY(20%);}
+      &:hover {color:#31d7a9}
+      &::after {
+        content: "";
+        width: 0;
+        border-radius:30px;
+        transform: translateY(340%) !important;
+        height: 3px;
+        background: #31d7a9;
+        box-shadow: 0 0 20px 0 #af1dc2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      &::before{
+        content: "";
+        width: 0;
+        border-radius:30px;
+        transform: translateY(-340%) !important;
+        height: 3px;
+        background: #31d7a9;
+        box-shadow: 0 0 20px 0 #af1dc2;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      color: #fff;
+      font-size: 18px;
+      background:none;
+      position: relative;
+      margin: auto;
+      &:hover::after, &:hover::before {width: 100%;transition: width 0.3s linear;}
+      @media(max-width: 768px){margin: 0px 20px !important; padding: 0px 16px !important; font-size: 15px;}
+      @media(max-width: 576px){margin: 0px 10px !important; padding: 0px 16px !important; font-size: 15px;}
+    }
+    border-top: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 8px 0px;
+    .nav-link.active{color: #31d7a9;}
+    .nav-link.active::after,.nav-link.active::before {width:100%} 
+  }
+
+  #nav-tabContent{
+    .avata{
+      width: 70px; height: 70px;
+      border: 1px solid rgba(49, 215, 169, 0.5);
+      img{border: 2px solid #31d7a9;}
+      @media(max-width:1200px){width: 65px; height: 65px;}  
+    }
+    .detail_review{
+      input, .btn_send {
+        .bx-send{font-size: 30px; color: #31d7a9;}
+        background: none; border: none !important; outline: none;
+      }
+      .cards_review{
+        i{color: #31d7a9;font-size: 25px;}
+        .date {
+          color: #bdcaf3;
+          font-size: 13px;
+          margin: 5px 0px;
+          text-transform: capitalize;
+        }
+      }
+    }
+    .detail_plan{
+      .nav-link{ 
+        color: #fff !important;
+        font-weight: 600;
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+        border-radius: 10px;
+      }
+      .nav-link.active{box-shadow: 0 0 10px #5560ff;}
+      .NAVLINK{
+        color: #ffffff;
+        padding: 5px;
+        // width: 40px;
+        font-size: 15px;
+        background: #162f5f;
+        // position: relative;
+        // mask-position: center center;
+        -webkit-mask-position: center center;
+        text-align: center;
+        mask-image: url(../Assets/Images/imgDetail/movie-seat.png);
+        -webkit-mask-image: url(../Assets/Images/imgDetail/movie-seat.png);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        // -webkit-mask-size: 100% 100%;
+        // mask-size: 100% 100%;
+        cursor: pointer;
+        -webkit-transition: all ease 0.3s;
+        transition: all ease 0.3s;
+        display: block;
+        margin: 5px;
+        text-decoration: none;
+        &:hover{ background-color: #31d7a9;}
+      }
+    }
+  }
+}

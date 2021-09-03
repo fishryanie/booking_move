@@ -1,0 +1,193 @@
+.seat{
+  overflow: hidden;
+  // opacity: 0;
+  // visibility: hidden;
+  // opacity: 0;
+  .movieAddress,.movieTime{
+    h4{
+      @media (max-width: 768px){font-size: 20px;}
+      @media (max-width: 576px){font-size: 15px;}
+    }
+    p{
+      @media (max-width: 768px){font-size: 15px;}
+      @media (max-width: 576px){font-size: 13px;}
+    }
+  }
+  .movieName {
+    @media (max-width: 992px){padding: 15px 0px 20px !important;}
+    @media (max-width: 768px){font-size: 15px; span {padding: 8px 10px !important;}}
+  }
+  .movieTime {
+    span {
+      @media (max-width: 992px){text-align: center !important;padding: 10px 0px !important;}
+    }
+    
+  }
+  
+
+ 
+  
+     
+   
+   
+  
+  .btn_trailer{
+    @media (max-width: 992px){ display: flex; ;padding: 40px 0px; justify-content: center;}
+    a {
+      padding: 10px 30px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 0 20px #5560ff;
+      overflow: hidden;
+  
+      @media (max-width: 768px){ font-size: 12px;}
+
+      @keyframes animate1 {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      @keyframes animate2 {
+        0% {transform: translateY(-100%);}
+        100% {transform: translateY(100%);}
+      }
+      span{ position: absolute;}
+      span:nth-child(1) {
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(to right, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+        animation: animate1 2s linear infinite; 
+      }
+      span:nth-child(2) {
+        top: 0;
+        right: 0;
+        width: 4px;
+        background: linear-gradient(to bottom, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+        animation: animate2 2s linear infinite;
+        animation-delay: 1s;
+      }
+      span:nth-child(3) {
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(to left, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+        animation: animate1 2s linear infinite;
+        animation-direction: reverse;
+      }
+      span:nth-child(4) {
+        top: 0;
+        left: 0;
+        width: 4px;
+        background: linear-gradient(to top, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+        animation: animate2 2s linear infinite;
+        animation-direction: reverse;
+        animation-delay: 1s;
+      }
+    }
+
+    
+  }
+
+  p{ color: #9aace5;}
+  
+
+  .subtitle{
+    color: #31d7a9;
+    margin: 30px auto;
+    padding: 10px;
+    position: relative;
+    max-width: 350px;
+    text-transform: uppercase;
+    &::after{width: 100%;bottom: 0;}
+    &::before{width: 80%;top: 0;}
+    &::before , &::after{
+      position: absolute;
+      content: '';
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      background: #213a69;
+    }
+  }
+  .btnChair{
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    @media (max-width: 1200px){ width: 35px; height: 35px;font-size: 14px;}
+    @media (max-width: 992px){ width: 30px; height: 30px;font-size: 13px;}
+    @media (max-width: 768px){width: 25px;height: 25px; font-size: 11px; margin: 3px;}
+    @media(max-width: 580px){width: 20px;height: 20px; font-size: 9px; margin: 2px;}
+
+    .a {
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      top: -10px;
+      right: -10px;
+      &::before {
+        content: "1";
+        display: none;
+        line-height: 24px;
+        height: 24px;
+        width: 24px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #2bd156;
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+      }
+    }
+    
+    &:focus .a {
+      display: block;
+      animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
+    }
+    &:focus .a::before {
+      display: block;
+      animation:  yAxis 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    @keyframes xAxis {
+      100%{
+        transform: translateX(calc(50vw - 105px));
+        visibility: hidden;
+      }
+    }
+    @keyframes yAxis {
+      100% {
+        transform: translateY(calc(-60vh + 75px));
+        visibility: hidden;
+      }
+
+    }
+
+  }
+  
+ 
+ 
+  
+  .screen{
+    @media (min-width: 1200px){width: 60% !important;}
+    @media (min-width: 992px){width: 70% !important;}
+    @media (min-width: 768px){width: 80% !important;}
+    @media (min-width: 576px){width: 100%;}
+    @media (max-width: 576px){width: 100%;}
+  }
+  .marginSeat{
+    margin-left: 100px;
+    @media(max-width: 1200px){margin-left: 75px;}
+    @media(max-width: 992px){margin-left: 25px;}
+    @media(max-width: 768px){margin-left: 20px;}
+    @media(max-width: 580px){margin-left: 10px;}
+  }
+  background: #001232;
+  .gheVip{background-color: #dc3545;}
+  @media (max-width: 768px){.container{max-width: 780px;}}
+}

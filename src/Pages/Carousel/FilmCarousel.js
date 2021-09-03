@@ -18,6 +18,7 @@ export default function FilmCarousel() {
         initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 2000,
+        slickNext:false,
         responsive: [
           {
             breakpoint: 1200,
@@ -25,7 +26,6 @@ export default function FilmCarousel() {
               slidesToShow: 3,
               slidesToScroll: 3,
               infinite: true,
-              dots: true
             }
           },
           {
@@ -46,7 +46,7 @@ export default function FilmCarousel() {
         ]
       };
     return (
-        <section className="container">
+        <section className="container film-slider">
             <h1 className="m-5"><i class='bx bx-camera-movie mr-4 display-4'></i>TOP MOVIE</h1>
             <Slider {...settings}>
                 {ArrayFilm?.map((item, index) => {

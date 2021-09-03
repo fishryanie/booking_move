@@ -48,7 +48,7 @@ export default function FilmSlider() {
     ],
   };
   return (
-    <section style={{ background: "#001232" }}>
+    <section children="FlimSlider" style={{ background: "#001232" }}>
       <section className="container text-light">
         <h1 className="m-5">
           <i class="bx bx-camera-movie mr-4 display-4"></i>TOP MOVIE

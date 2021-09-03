@@ -1,18 +1,49 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { GetListFilm } from "../../Redux/Actions/FilmAction"
+import { NavLink } from 'react-router-dom'
 import moment from "moment"
-import '../../Scss/ListFilm.scss'
-export default function Flim() {
-  const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
-  console.log(ArrayFilm)
-  const dispatch = useDispatch();
-  useEffect(() => { dispatch(GetListFilm()) }, [])
+import Pagination from '@material-ui/lab/Pagination';
 
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+import '../../Scss/Dialog.css'
+import '../../Scss/ListFilm.scss'
+import AlertDialogSlide from './DialogBuyTicket'
+export default function Flim() {
+  useEffect(() => { dispatch(GetListFilm())}, [])
+  const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
+  const [showMenu, setShowMenu] = React.useState('')
+  const dispatch = useDispatch();
+  const [openDiaLog, setOpenDiaLog] = React.useState(false);
+  const [idFilm, setIdFilm] = React.useState(false);
+  const [page, setPage] = React.useState(1)
+  const [silce, setSilce] = React.useState({ from:0, to:8 })
+  const handle= (e, value) => {
+    setPage(value);
+    setSilce((silce) => ({
+      ...silce,
+      from: value === 1 ? 0 : value === 2 ?  8 : value === 3 ? 16 : value === 4 ? 24 : value === 5 ? 32 : value === 6 ? 40 : value === 7 ? 48 : 56, 
+      to: value === 1 ? 8 : value === 2 ? 16 : value === 3 ? 24 : value === 4 ? 32 : value === 5 ? 40 : value === 6 ? 48 : value === 7 ? 56 : 60
+    }));
+  };
+ 
+  
+ 
   return (  
-    <section className="book-store">
+    <section className="book-store mt-5 mb-5">
+      <AlertDialogSlide idFilm={idFilm}></AlertDialogSlide>
+     
+     
+      <h1 className="display-4">MOVIES</h1>
+      <p>Be sure not to miss these Movies today.</p>
       <div className="book-cards">
-        {ArrayFilm.map((item, index) =>(
+        {ArrayFilm.slice(silce.from, silce.to).map((item, index) => (
           <div className="book-card" key={index}>
             <div className="position-absolute" style={{bottom:'0',left:'0'}}>
               <i class='bx bxs-share-alt pl-1'></i>
@@ -24,7 +55,7 @@ export default function Flim() {
               <div className="menu-icon"><i class='bx bx-dots-vertical d-block p-2'></i></div>
               <img className="book-card-img" src={item.hinhAnh}/>
               <div className="card-content">
-                <h3>{item.tenPhim}</h3>
+                <h4>{item.tenPhim}</h4>
                 <div className="tags">
                   <div className="tagbox purple mr-2">
                     {moment(item.ngayKhoiChieu).format("dddd")}
@@ -42,13 +73,18 @@ export default function Flim() {
             </div>
             <section class="btnFilm">
               <span>
-                <a><i class="fas fa-calendar-day px-2"></i>Chi tiết</a>
-                <a><i class="fas fa-ticket-alt px-2"></i>Mua vé</a>
+                <NavLink to ={`/detail/${item.maPhim}`}><i class="fas fa-calendar-day px-2"></i>Chi tiết</NavLink>
+                <NavLink type="button" data-toggle="modal" data-target="#exampleModal"  to="" onClick={()=>{setOpenDiaLog(true);setIdFilm(item.maPhim)}}><i class="fas fa-ticket-alt px-2"></i>Mua vé</NavLink>
               </span>
             </section>
+           
           </div>
         ))}    
       </div>
+      <div>
+
+      </div>
+      <Pagination color='primary' size="small" variant="outlined" count={8} page={page} shape="rounded" showFirstButton showLastButton  onChange={handle}/>
     </section>
   )
 }

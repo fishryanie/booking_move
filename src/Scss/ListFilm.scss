@@ -4,8 +4,12 @@
   flex-direction: column;
   max-width: 1300px !important;
   margin: 0 auto;
-  // overflow: hidden;
+  @media (max-width: 1350px) { padding: 0px 50px; }
+  @media (max-width: 992px) {padding: 0px 100px; }
+  @media (max-width: 768px) { padding: 0px 50px; }
+  @media (max-width: 576px) { padding: 0px 25px; }
 
+  
   .book-content {
     color: #ffffff !important;
     overflow: hidden;
@@ -27,10 +31,8 @@
     grid-row-gap: 40px;
     padding-top: 40px;
     position: relative;
-    @media (min-width: 992px) { padding: 0px 50px; }
-    @media (max-width: 992px) {padding: 0px 100px; grid-template-columns: 1fr}
-    @media (max-width: 768px) { padding: 0px 50px; }
-    @media (max-width: 576px) { padding: 0px 25px; }
+    @media (max-width: 992px) {grid-template-columns: 1fr}
+  
     .book-card {
       width: 100%;
       margin-top: 20px;
@@ -86,6 +88,7 @@
          
         }
         .card-content {
+       
           padding: 10px 30px;
           padding-bottom: 5px;
           overflow: hidden;
@@ -145,18 +148,22 @@
   
 
   .btnFilm span {position: relative; display: inline-block; width: 250px;height: 40px;box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25); border-radius:0 55px 30px 55px;}
-  .btnFilm span a{position: absolute; width: 100%; height: 100%; color:#fff; background: rgba(255,255,255,0.2); text-transform: uppercase;font-size: 13px; padding: 10px; cursor: pointer;}
+  .btnFilm span a{position: absolute; width: 100%; height: 100%; color:#fff; background: rgba(255,255,255,0.2); text-transform: uppercase;font-size: 13px; padding: 10px; cursor: pointer; text-decoration: none;}
   .btnFilm span a:nth-child(1) {border-radius:20px; text-align: left;}
   .btnFilm span a:nth-child(2) {border-radius: 20px; color: #fff; background: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%); overflow: hidden;z-index: 2; transition: 1s; clip-path: inset(0% -10% 0% 45% round 30px); text-align:right; padding-right: 30px !important; }
   .btnFilm span a:nth-child(2):hover {clip-path:  polygon(0 0, 100% 0%, 100% 100%, 0 100%, 0 50%); text-align: center !important; transition: 5s !important;}
   .btnFilm span a:nth-child(1):hover {text-align: center !important; }
-  .btnFilm span a:nth-child(1):hover ~ span:nth-child(2) {clip-path:  polygon(100% 0, 100% 0%, 100% 100%, 100% 100%, 100% 50%); text-align: center !important;}
+  .btnFilm span a:nth-child(1):hover ~ a:nth-child(2) {clip-path:  polygon(100% 0, 100% 0%, 100% 100%, 100% 100%, 100% 50%); text-align: center !important;}
+
+  .MuiPagination-ul{display: flex; padding: 10px; margin-top: 30px;justify-content: center;}
+  .MuiPaginationItem-outlined {border: 1px solid rgba(255, 255, 255, 0.2)}
+  .MuiButtonBase-root{color: #fff !important}
+    
+    
+  
+
+
 }
 
 
 
-@media (max-width: 372px) {
-  .book-store .book-cards .book-card .content-wrapper .card-content {
-    padding: 20px;
-  }
-}

@@ -1,11 +1,19 @@
+
+
+  .slick-arrow{
+    display: none !important;
+  }
+
 .filmCarousel01 {
+  
+  @media (max-width: 576px) { padding: 0px 70px; }
 	.card {
 		background-color: black;
 		-webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
 		box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
 		border-radius: 10px;
-		background-image: url(https://i.imgur.com/VqgIGmN.png);
-		background-repeat: no-repeat;
+		// background-image: url(https://i.imgur.com/VqgIGmN.png);
+		background-repeat: no-repeat !important;
 		background-size: cover;
 		height: 400px;
 		overflow: hidden;
@@ -21,7 +29,7 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			background-repeat: no-repeat;
+			background-repeat: no-repeat !important;
 			background-size: cover;
 			opacity: 0.8;
 		}

@@ -7,7 +7,8 @@ let gheDaDat = []
 
 
 const stateDatVe = {
-    danhSachGheDangDat:[]
+  danhSachGheDangDat:[],
+  // count: ''
 }
 
 
@@ -17,23 +18,21 @@ export const QuanLyDatVeReducer = (state = stateDatVe, action) => {
         case 'DAT_GHE': {
             //Kiểm tra ghế có trong mảng danhSachGheDangDat => Có xoá, không thì thêm vào
             let index = state.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === action.chair.maGhe);
-            if(index !== -1) {
-                state.danhSachGheDangDat.splice(index,1);
-            } else {
-                state.danhSachGheDangDat.push(action.chair);
-            };
+            index !== -1 ? state.danhSachGheDangDat.splice(index,1) : state.danhSachGheDangDat.push(action.chair);
+          
             //Cập nhật lại state
-            state.danhSachGheDangDat = [...state.danhSachGheDangDat];
+            state.danhSachGheDangDat = [...state.danhSachGheDangDat]
             return {...state};
         }
+
         case 'HUY_DAT_VE':{
-            let index = state.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === action.gheDangDat.maGhe);
-            if(index !== -1) {
-                state.danhSachGheDangDat.splice(index,1);
-            }
+          let index = state.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === action.gheDangDat.maGhe);
+          console.log(action.gheDangDat)
+          if(index !== -1) {
+              state.danhSachGheDangDat.splice(index,1);
+          }
+          return {...state}
         }
         default: return { ...state };
     }
-
-
 }
