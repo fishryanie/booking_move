@@ -1,5 +1,5 @@
 import React,{useEffect, useState,Fragment} from 'react'
-import "./Header.scss"
+import "../../Scss/Header.scss"
 import logo from "../../Assets/Images/logo.svg"
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
@@ -104,7 +104,7 @@ export default function Header() {
             <span>Total Paid</span>
             <h5>{tinhTongTien().toLocaleString() + " đ"}</h5>
           </div>
-          <NavLink className="btn btnSignInUp px-5" to="">Payment</NavLink>
+          <button className="btn btnSignInUp px-5" data-toggle="modal" data-target="#checkout" >Payment</button>
         </div>
       </div>
      
@@ -140,9 +140,6 @@ export default function Header() {
                   <li className="nav-item px-3"><NavLink className="nav-link dropdown-item text-light" to="/register">SIGN UP</NavLink></li>
                   {loaiNguoiDung === 'QuanTri' ? <li className="nav-item px-3">{navDropdown('/admin','ADMIN')}</li> : null}
                   {taiKhoan  !== '' ? <li className="nav-item px-3"><a className="nav-link dropdown-item text-white" onClick ={()=>{dispatch({type:'LOG_OUT'})}} href="#">LOG OUT</a></li> : null}
-                  <button onClick={() => {
-                    console.log(taiKhoan)
-                  }}>hahahaa</button>
                 </ul>
               </li>
             </ul>

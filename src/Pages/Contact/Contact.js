@@ -7,9 +7,12 @@ import Footer from "../Footer/Footer";
 import "../../Scss/Contact.scss";
 
 export default function Contact() {
+
+
+  const propsBanner =  {title:'CONTACT US', content:'contact content'}
    return (
       <section className="contact text-light" style={{ background: "#001232" }}>
-         <BannerCarousel title="CONTACT US" content="contact content"></BannerCarousel>
+         <BannerCarousel item={propsBanner}></BannerCarousel>
             <section className="contact_content">
                <div className="position-relative w-100">
                   <div className="container-fluid">

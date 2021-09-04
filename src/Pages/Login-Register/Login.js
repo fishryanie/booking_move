@@ -7,45 +7,45 @@ import { useForm } from "react-hook-form";
 import { LoginAction } from '../../Redux/Actions/UserAction';
 import { NavLink } from 'react-router-dom';
 import "./login.css"
+import IconShare from '../../IconShare';
 
+const LoginContent = styled.div`
+  width: 100%;
+  max-width: 540px;
+  margin: 100px auto;
+  padding: 45px;
+  background: rgba(0,0,0,0.6);
+  border-radius:10px;
+  box-shadow: 0 0 10px 5px #173d65;
+`
+const BtnLodgin = styled.button`
+  background: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+  border: none;
+  letter-spacing: 3px;
+  outline: none;
+  font-weight: 800;
+  font-family: 'Times New Roman', Times, serif;
+`
+const Input = styled.input`
+  width:100%;
+  background: none;
+  outline: none;
+  border : none;
+  color:#fff;
+  border-bottom:1px solid white !important;
+`
 export default function Login() {
     const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-
-        console.log(data);
-        let userLogin = {
-            "taiKhoan": data.userName,
-            "matKhau": data.passWord
-        };
-        dispatch(LoginAction(userLogin));
-
+      console.log(data);
+      let userLogin = {
+          "taiKhoan": data.userName,
+          "matKhau": data.passWord
+      };
+      dispatch(LoginAction(userLogin));
     }
-    const LoginContent = styled.div`
-        width: 100%;
-        max-width: 540px;
-        margin: 100px auto;
-        padding: 45px;
-        background: rgba(0,0,0,0.6);
-        border-radius:10px;
-        box-shadow: 0 0 10px 5px #173d65;
-    `
-    const BtnLodgin = styled.button`
-        background: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
-        border: none;
-        letter-spacing: 3px;
-        outline: none;
-        font-weight: 800;
-        font-family: 'Times New Roman', Times, serif;
-    `
-    const Input = styled.input`
-        width:100%;
-        background: none;
-        outline: none;
-        border : none;
-        color:#fff;
-        border-bottom:1px solid white !important;
-    `
+    
 
     return (
         <section className="Login backgroundLogin_register">
@@ -76,11 +76,9 @@ export default function Login() {
                         <div className=" text-center px-5">OR</div>
                         <hr/>
                     </div>
-                    <div className="icon text-center mt-3">
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-google-plus-square mx-5"></i>
-                        <i class="fab fa-twitter-square"></i>
-                    </div>
+                    
+                    <IconShare/>
+                    
                 </form>
             </LoginContent>
         </section>

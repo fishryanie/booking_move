@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import tomato from '../../Assets/Images/imgDetail/tomato2.png'
 import cake from '../../Assets/Images/imgDetail/cake2.png'
 import Trailer from './Trailer'  
+import IconShare from '../../IconShare';
 
 const Date = styled.div`
     display: inline-block;
@@ -51,51 +52,7 @@ export default function Detail_Header() {
               </div>
               <div className="col-6 d-flex align-items-end h-100 w-100 p-0">
                 <div className="h-50 w-100 d-flex align-items-end">
-                  <div id="wrapper">
-                  <div id="share">
-                    {/* <span>Share : </span> */}
-                    <a href="#" className="share_item twitter">
-                      <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" className="circle">  
-                        <circle cx={100} cy={100} r={50} />
-                      </svg>
-                      <div className="social">
-                        <i className="fa fa-twitter" />
-                      </div>
-                    </a>
-                    <a href="#" className="share_item facebook">
-                      <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" className="circle">  
-                        <circle cx={100} cy={100} r={50} />
-                      </svg>
-                      <div className="social">
-                        <i className="fa fa-facebook" />
-                      </div>
-                    </a>
-                    <a href="#" className="share_item google">
-                      <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" className="circle">  
-                        <circle cx={100} cy={100} r={50} />
-                      </svg>
-                      <div className="social">
-                        <i className="fa fa-google-plus" />
-                      </div>
-                    </a>
-                    <a href="#" className="share_item pinterest">
-                      <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" className="circle">  
-                        <circle cx={100} cy={100} r={50} />
-                      </svg>
-                      <div className="social">
-                        <i className="fa fa-pinterest" />
-                      </div>
-                    </a>
-                    <a href="#" className="share_item linkedin">
-                      <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" className="circle">  
-                        <circle cx={100} cy={100} r={50} />
-                      </svg>
-                      <div className="social">
-                        <i className="fa fa-linkedin" />
-                      </div>
-                    </a>
-                  </div>
-                </div>
+                  <IconShare></IconShare>
                 </div>
               </div>
             </div>

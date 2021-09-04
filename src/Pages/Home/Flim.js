@@ -5,22 +5,15 @@ import { NavLink } from 'react-router-dom'
 import moment from "moment"
 import Pagination from '@material-ui/lab/Pagination';
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
-import '../../Scss/Dialog.css'
+import SearchFilm from './SearchFilm'
+import '../../Scss/SearchFilm.scss'
 import '../../Scss/ListFilm.scss'
-import AlertDialogSlide from './DialogBuyTicket'
+
 export default function Flim() {
   useEffect(() => { dispatch(GetListFilm())}, [])
   const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
-  const [showMenu, setShowMenu] = React.useState('')
   const dispatch = useDispatch();
-  const [openDiaLog, setOpenDiaLog] = React.useState(false);
+
   const [idFilm, setIdFilm] = React.useState(false);
   const [page, setPage] = React.useState(1)
   const [silce, setSilce] = React.useState({ from:0, to:8 })
@@ -37,7 +30,7 @@ export default function Flim() {
  
   return (  
     <section className="book-store mt-5 mb-5">
-      <AlertDialogSlide idFilm={idFilm}></AlertDialogSlide>
+      <SearchFilm idFilm={idFilm}></SearchFilm>
      
      
       <h1 className="display-4">MOVIES</h1>
@@ -74,7 +67,7 @@ export default function Flim() {
             <section class="btnFilm">
               <span>
                 <NavLink to ={`/detail/${item.maPhim}`}><i class="fas fa-calendar-day px-2"></i>Chi tiết</NavLink>
-                <NavLink type="button" data-toggle="modal" data-target="#exampleModal"  to="" onClick={()=>{setOpenDiaLog(true);setIdFilm(item.maPhim)}}><i class="fas fa-ticket-alt px-2"></i>Mua vé</NavLink>
+                <NavLink type="button" data-toggle="modal" data-target="#exampleModal"  to="" onClick={()=>{setIdFilm(item.maPhim)}}><i class="fas fa-ticket-alt px-2"></i>Mua vé</NavLink>
               </span>
             </section>
            

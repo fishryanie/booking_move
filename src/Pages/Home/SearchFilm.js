@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import imgDate from '../../Assets/Images/ImageDialog/date.png'
 import imgCinema from '../../Assets/Images/ImageDialog/cinema.png'
 import imgCity from '../../Assets/Images/ImageDialog/city.png'
-import '../../Scss/Dialog.css'
+import '../../Scss/SearchFilm.scss'
 import Alert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
@@ -16,7 +16,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const Type = styled.div `color: #31d7a9; font-size: 16px; padding-left: 8px;`
 
-export default function AlertDialogSlide(props) {
+export default function SearchFilm(props) {
   const chiTietPhim = useSelector(state => state.FilmReducers.DetailFilm);
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -149,7 +149,7 @@ export default function AlertDialogSlide(props) {
 
   return (
 
-     <section className="diaLogBuyTicket text-white rounded">
+     <section className="searchFilm text-white rounded">
       
         {/* Modal */}
         <div className="modal fade rounded" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">

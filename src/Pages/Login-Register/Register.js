@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 
 import { RegisterAction } from '../../Redux/Actions/UserAction'
+import IconShare from '../../IconShare';
 export default function Register() {
 
     const SignupSchema = yup.object().shape({
@@ -86,14 +87,8 @@ export default function Register() {
                     <div className="col-12 text-center mb-4">Already have an account? <NavLink className='text-success' to={"/register"}>Login now </NavLink></div>
                     <div className="col-12 d-flex"><hr /><div className=" text-center px-5">OR</div><hr />
                     </div>
-
-                    <div className="col-12 icon text-center mt-3">
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-google-plus-square mx-5"></i>
-                        <i class="fab fa-twitter-square"></i>
-                    </div>
+                    <div className="col-12"><IconShare/></div>
                 </form>
-
             </RegisterContent>
         </section>
     )

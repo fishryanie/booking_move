@@ -6,7 +6,7 @@ import  {HomeTemplate}  from './Template/HomeTemplate'
 import { AdminTemplate } from './Template/AdminTemplate';
 import About from './Pages/About/About'
 import Home from './Pages/Home/Home';
-import AlertDialogSlide from './Pages/Home/DialogBuyTicket';
+// import AlertDialogSlide from './Pages/Home/DialogBuyTicket';
 import Application from './Pages/Application/Application';
 import Contact from './Pages/Contact/Contact';
 import Detail from './Pages/Detail/Detail';
@@ -25,7 +25,7 @@ function App() {
       <section className="App" >
         <Switch>
           <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
-          <HomeTemplate exact path="/home" Component={AlertDialogSlide}></HomeTemplate>
+          
           <HomeTemplate exact path="/app" Component={Application}></HomeTemplate>
           <HomeTemplate exact path="/about" Component={About}></HomeTemplate>
           <HomeTemplate exact path="/contact" Component={Contact}></HomeTemplate>

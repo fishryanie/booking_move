@@ -1,0 +1,46 @@
+.checkout{
+  .modal-content,.modal-body, .modal-header{border: none !important;}
+  font-family: 'Times New Roman', Times, serif !important;
+  .payment{
+    h6{font-size: 13px !important; height: 35px; line-height: 35px;}
+    .payment_title { background: #273056; border-radius: 20px 20px 0 0;}
+    label{ color: rgba(0, 0, 0, 0.6); font-size: 14px;}
+    input{border: none; outline: none; background: none; border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    &:focus{border-color: #5560ff8a !important;}
+    }
+    
+    .payment_holder{
+      
+      
+      .payment_holder_footer{
+        background: #ddd;
+        border-radius: 0 0 20px 20px;
+        height: 50px;
+ 
+     
+    
+      }
+      
+
+      .payment_from { border-right: 1px  dashed rgba(0, 0, 0, 0.1)}
+    }
+    .payment_total{
+      .barcode{transform: translateY(13px);}
+      
+      .btnPayment{
+        border: none; outline: none;
+        color: #fff !important;
+        font-size: 18px;
+        border-radius: 0 0 20px 20px;
+        height: 50px;
+        &:hover{box-shadow: 0 0 5px #5560ff;}
+      }
+     
+      color: #000;
+    }
+
+
+  }
+  
+
+}

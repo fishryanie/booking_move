@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import screen from '../../Assets/Images/imgSeat/screen-thumb.png';
 import bannerSeat from '../../Assets/Images/imgSeat/bannerSeat.jpeg'
 import '../../Scss/seat.scss'
+import Checkout from '../Checkout/Checkout';
 
 export default function Seat(props) {
   const thongTinPhongVe = useSelector(state => state.FilmReducers.thongTinPhongVe);
@@ -120,10 +121,11 @@ export default function Seat(props) {
         
         
         
-    
+      <section>
+        <Checkout></Checkout>
+      </section>
       {/* <FilmSlider></FilmSlider> */}
-      {/* <Footer></Footer> */}
-     
+      <Footer></Footer>
     </section>
   )
 }
