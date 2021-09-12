@@ -67,7 +67,7 @@ export default function Flim() {
             <section class="btnFilm">
               <span>
                 <NavLink to ={`/detail/${item.maPhim}`}><i class="fas fa-calendar-day px-2"></i>Chi tiết</NavLink>
-                <NavLink type="button" data-toggle="modal" data-target="#exampleModal"  to="" onClick={()=>{setIdFilm(item.maPhim)}}><i class="fas fa-ticket-alt px-2"></i>Mua vé</NavLink>
+                <NavLink type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  to="" onClick={()=>{setIdFilm(item.maPhim)}}><i class="fas fa-ticket-alt px-2"></i>Mua vé</NavLink>
               </span>
             </section>
            

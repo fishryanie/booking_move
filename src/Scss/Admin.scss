@@ -1,0 +1,58 @@
+.admin {
+  .dropholder {
+    .dropdown {
+      p {
+        font-size: 18px;
+        @media (max-width:1200px){font-size: 16px;}
+        @media (max-width:992px){font-size: 13px;}
+      }
+      &:after { content: "▾"; font-size: 18px; position: absolute; right: 10px; top: 13px; display: block }
+      @media (max-width:1200px){width: 100% !important; text-align: right; padding-right: 40px;}
+      @media (max-width:992px){width: 100% !important; text-align: right; padding-right: 40px;}
+      @media (max-width:576px){width: 100% !important; text-align: right; padding-right: 40px;}
+      position: relative; width: 300px; height: 50px; padding: 0 10px; cursor: pointer;
+    }
+    .menu {
+      position: absolute; left: 0; top: 70px; opacity: 0;width: 300px; max-height: 400px;
+      transform-style: preserve-3d; transform: rotatey(180deg) rotateX(5deg) translatey(100px); transition: all 0.8s;
+      backface-visibility: hidden; overflow: hidden; overflow: auto;
+      background: linear-gradient(#4dc2f8, #0d82b9);
+      border: 2px solid #0d82b9; border-radius: 10px;  z-index: 5; cursor: pointer;
+      li { 
+        padding: 10px 10px; font-size: 16px !important; border-bottom: 1px dotted #fff; color: #e8f8ff; transition: all 0.3s; list-style: none;
+        &:hover { background: #61ccfd; padding-left: 20px; }
+        &:last-child { border: none;}
+      }
+    }
+    .showMenu { opacity: 1; transform: rotateX(0deg) translatey(0px);}
+    width: 390px;
+    height: 50px;
+    padding: 0 0 0 20px;
+    border-radius: 10px;
+    font: 18px arial;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+    animation: move 3s ease-in-out infinite;
+    @media (max-width:1200px){width: 100% !important;}
+    @media (max-width:992px){width: 100% !important;}
+    @media (max-width:576px){
+      img{width: 35px;} 
+      width: 100% !important;
+    }
+    p { line-height: 50px;}
+    &::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 1px; height: 4px;
+      border-radius: 30px;
+      background: linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+      box-shadow: 0 0 20px 0 #af1dc2;
+    }
+    &:hover { width: 25%; transition: width 0.3s linear; }
+    &:hover:after { width: 100%; transition: width 0.3s linear;}
+    background: rgba(255,255,255,0.5) ;
+  
+    
+
+
+  }
+
+}

@@ -77,7 +77,7 @@ export default function Seat(props) {
           <div className="d-flex justify-content-between">
 
             <div className="col-sm-7 col-6 row">
-              <div className="btn_trailer rounded col-lg-5 d-flex align-items-center">
+              <div className="btn_trailer rounded col-lg-4 d-flex align-items-center">
                 <a className="position-absolute rounded">
                   <span className="w-100"></span>
                   <span className="h-100 "></span>
@@ -86,7 +86,7 @@ export default function Seat(props) {
                   {thongTinPhongVe.thongTinPhim?.tenRap}
                 </a>
               </div>
-              <div className="col-lg-7">
+              <div className="col-lg-8">
                 <div className="text-center movieAddress">
                   <h4>{thongTinPhongVe.thongTinPhim?.tenCumRap}</h4>
                   <p>{thongTinPhongVe.thongTinPhim?.diaChi}</p>

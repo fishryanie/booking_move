@@ -6,7 +6,7 @@
 
 .filmCarousel01 {
   
-  @media (max-width: 576px) { padding: 0px 70px; }
+  
 	.card {
 		background-color: black;
 		-webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.48);
@@ -14,13 +14,16 @@
 		border-radius: 10px;
 		// background-image: url(https://i.imgur.com/VqgIGmN.png);
 		background-repeat: no-repeat !important;
-		background-size: cover;
+		background-size: cover !important;
 		height: 400px;
 		overflow: hidden;
 		position: relative;
 		z-index: 1;
 		border: none;
 		outline: none;
+    @media (max-width: 992px) { height: 350px; }
+    @media (max-width: 768px) { height: 400px; }
+    @media (max-width: 576px) { height: 350px; }
 		&::before {
 			content: "";
 			position: absolute;
@@ -40,7 +43,7 @@
 		}
 	}
 	.card-spacing {
-		padding-top: 220px;
+		padding-top: 210px;
 		transition: padding 0.3s;
 		height: 100vh;
 	}
@@ -51,6 +54,10 @@
 		background: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 15% );
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
 		height: 100vh;
+    @media (max-width: 992px) { padding-top: 30px; }
+    @media (max-width: 768px) { padding-top: 80px; }
+    @media (max-width: 576px) { padding-top: 30px; }
+   
 	}
 	h5 {
 		max-height: 1.5rem !important;

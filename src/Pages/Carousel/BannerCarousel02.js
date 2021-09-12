@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 const CarouselContet = styled.div`
   position: absolute;
   top: 0;
@@ -10,9 +11,9 @@ const CarouselContet = styled.div`
 export default function BannerCarousel02(props) {
   const {itemProps} = props
   const [state, setstate] = React.useState({
-    background:'',
-    backgroundPosition:'center center',
-    backgroundRepeat: 'norepeat',
+    backgroundImage:'',
+    backgroundPosition:'center',
+    backgroundRepeat: 'no-repeat',
     backgroundAttachment:'fixed',
     backgroundSize: 'cover',
     position:'relative',
@@ -21,7 +22,7 @@ export default function BannerCarousel02(props) {
   })
   React.useEffect(() => {
     setstate((state) => ({
-      ...state, background: itemProps.hinhAnh == null ? state.background : itemProps.hinhAnh
+      ...state, backgroundImage: itemProps.hinhAnh == null ? state.background : itemProps.hinhAnh
     }))
   }, [])  
   return (

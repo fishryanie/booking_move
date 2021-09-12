@@ -12,11 +12,6 @@ export default function Trailer(props) {
       <div className="modal fade " id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content bg-transparent">
-            <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span className ="text-white" aria-hidden="true">×</span>
-              </button>
-            </div>
             <div className="p-0 m-0">
               <Iframe width="100%" height="500px" src={props.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Iframe>
             </div>

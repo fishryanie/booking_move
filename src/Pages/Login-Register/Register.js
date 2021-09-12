@@ -43,8 +43,8 @@ export default function Register() {
         box-shadow: 0 0 10px 5px #173d65;`
 
     return (
-        <section className="backgroundLogin_register">
-            <RegisterContent className="animate__animated animate__backInDown">
+        <section className="backgroundLogin_register p-4">
+            <RegisterContent className="">
                 <h3 className="text-center text-success">WELLCOME TO</h3>
                 <h1 className="text-center text-white mb-5">FLEX CINEMA</h1>
                 <form className="row p-3" onSubmit={handleSubmit(onSubmit)}>

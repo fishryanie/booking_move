@@ -35,9 +35,9 @@ export default function Detail_Plan() {
                     {heThongRap.cumRapChieu?.map((cumRap, index) => {
                       return <div key={index}>
                         <h6 className="mb-2 mt-5 text-white">{cumRap.tenCumRap}</h6>
-                        <div className="row flex-wrap">
+                        <div className="row flex-wrap justify-content-center">
                             {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                              return <NavLink to={`/seat/${lichChieu.maLichChieu}`} className="col-xl-2 col-md-3 text-white  NAVLINK">
+                              return <NavLink to={`/seat/${lichChieu.maLichChieu}`} className="col-4 col-sm-3 col-xl-2 text-white p-2  NAVLINK">
                                   {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                               </NavLink>
                             })}

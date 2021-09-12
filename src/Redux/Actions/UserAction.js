@@ -15,6 +15,7 @@ export const LoginAction = (user) => {//user = {taiKhoan:'', matKhau:''}
                 type:'LOGIN',
                 userName: result.data.taiKhoan,
                 loaiNguoiDung: result.data.maLoaiNguoiDung
+                
             })
             let chuyenTrang = result.data.maLoaiNguoiDung === "QuanTri" ? 'admin' : '' ; history.push(`/${chuyenTrang}`)
         }catch(errors) {
@@ -24,16 +25,16 @@ export const LoginAction = (user) => {//user = {taiKhoan:'', matKhau:''}
 }
 
 export const RegisterAction = (user) => {
-    axios({
-        url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
-        method:'POST',
-        data: user
-    }).then(result => {
-        alert('Đăng kí thành công')
-        console.log(result);
-    }).catch(errors => {
-        console.log('errors',errors)
-    })
+  axios({
+      url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
+      method:'POST',
+      data: user
+  }).then(result => {
+      alert('Đăng kí thành công')
+      console.log(result);
+  }).catch(errors => {
+      console.log('errors',errors)
+  })
 }
 
 

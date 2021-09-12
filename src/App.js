@@ -13,9 +13,9 @@ import Detail from './Pages/Detail/Detail';
 import Login from './Pages/Login-Register/Login';
 import Checkout from'./Pages/Checkout/Checkout';
 import Register from './Pages/Login-Register/Register';
-import Admin from './Pages/Admin/Admin';
+import Main from './Pages/Admin/Main';
 import Seat from './Pages/Seat/Seat'
-
+import Loading from './Components/Loading/Loading'
 import FilmManagement from './Pages/Admin/FilmManagement';
 export const history =  createBrowserHistory();
 
@@ -23,9 +23,9 @@ function App() {
   return (
     <Router history={history}>
       <section className="App" >
+        <Loading/>
         <Switch>
           <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
-          
           <HomeTemplate exact path="/app" Component={Application}></HomeTemplate>
           <HomeTemplate exact path="/about" Component={About}></HomeTemplate>
           <HomeTemplate exact path="/contact" Component={Contact}></HomeTemplate>
@@ -34,7 +34,7 @@ function App() {
           <HomeTemplate exact path="/seat/:id" Component={Seat}></HomeTemplate>
           <HomeTemplate exact path="/login" Component={Login}></HomeTemplate>
           <HomeTemplate exact path="/register" Component={Register}></HomeTemplate>
-          <AdminTemplate exact path = "/admin" Component ={Admin}></AdminTemplate>
+          <AdminTemplate exact path = "/admin" Component ={Main}></AdminTemplate>
           <AdminTemplate exact path = "/filmManagement" Component ={FilmManagement}></AdminTemplate>
           <HomeTemplate exact path ="/" Component={Home}></HomeTemplate>
         </Switch>

@@ -5,8 +5,8 @@
   }
   .imgFilm{
     img{
+      max-width: 80%;
       height: 90%;
-      border-radius: 10px;
       transform: translateY(56%);
       transition: 1s linear;
       @media  (max-width: 1200px){height: 80%; transition: 1s linear;}
@@ -14,7 +14,8 @@
     
     @media  (max-width: 992px){ display: none;}
   }
-  h1{ @media (max-width: 576px){ font-size: 30px;}}
+  h1{ @media (max-width: 576px){ font-size: 25px;}}
+  .detail_header_info{@media (max-width: 576px){ height: 70% !important;}}
   .book-section{ 
     @media (max-width: 576px){ padding-bottom: 50px;}
   }
@@ -34,6 +35,7 @@
   .genreMovie{
     span{
       border-radius: 18px; border: 1px solid rgba(163, 177, 198, 0.2); padding: 8px 18px; font-size: 13px;
+      @media (max-width: 576px){ padding: 5px 15px; font-size: 12px;}
     }
   }
 

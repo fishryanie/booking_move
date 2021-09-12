@@ -3,14 +3,13 @@ import "../../Scss/Header.scss"
 import logo from "../../Assets/Images/logo.svg"
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 export default function Header() {
   const {taiKhoan} = useSelector(state=>state.UserReducer);
   const {loaiNguoiDung} = useSelector(state=>state.UserReducer);
   const thongTinPhongVe = useSelector(state => state.FilmReducers.thongTinPhongVe);
   const {danhSachGheDangDat} = useSelector(state => state.QuanLyDatVeReducer);
   const [scroll, setScroll] = useState ('none')
-
+  const [openCart, setOpenCart] = useState('')
   const [quantityCart, setQuantityCart] = useState (0)
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,55 +18,33 @@ export default function Header() {
   },[danhSachGheDangDat.length]);
  
   
-  const [openCart, setOpenCart] = useState('')
+  
 
-  // const handleOpenCart = () => {
-  //   setOpenCart((openCart) => ({
-  //     ...openCart,
-  //     expanded: openCart.expanded === false ? true : true,
-  //     itemCart: openCart.itemCart === '' ? 'show' : ''
-  //   }))
-  // }
-  // console.log(openCart)
 
 
   const tinhTongTien = () => {
     return danhSachGheDangDat.reduce((tongTien, gheDangDat, index) => {
-        return tongTien += gheDangDat.giaVe;
+      return tongTien += gheDangDat.giaVe;
     }, 0);
   }
 
 
-  function NavMenu(){
-    const arrMenu = [
-      {to:'/home', text:'home'},
-      {to:'/app', text:'app'},
-      {to:'/about', text:'about'},
-      {to:'/contact', text:'contact'},
-    ]
-    return(
-      <Fragment>
-        {arrMenu.map(item => <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item text-uppercase" to={item.to}> {item.text} </NavLink></li>)}
-      </Fragment>
-    )
-  }
-
   
   const navDropdown = (to, text) => {
-    return  <NavLink className="nav-link dropdown-item text-light" to={to}>{text}</NavLink>
+    return  <NavLink className="nav-link dropdown-item text-dark" to={to}><i class="fas fa-sign-in-alt me-3 icnav"></i>{text}</NavLink>
   }
 
   function renderCart () {
     return (
-      <div className="dropdown-menu submenu ticket p-0 mt-4 bg-transparent">
-        <div className="ticket__wrapper bg-white p-3">
-          <div className="d-flex justify-content-between font-weight-bold">
+      <div className={`dropdown-menu submenu ticket p-0 mt-4 bg-light ${openCart}`} style={{border:'none'}} >
+        <div className="ticket__wrapper bg-white p-3 m-0">
+          <div className="d-flex justify-content-between font-weight-bold bg-white">
             <div>BOOKING</div>
             <div>{danhSachGheDangDat.length} 🎟 </div>
           </div>
         </div>
         <div className="ticket__divider bg-white">
-          <div className="ticket__notch" />
+          <div className="ticket__notch " />
           <div className="ticket__notch ticket__notch--right" />
         </div>
         <div className="ticket__body bg-white p-3">
@@ -104,50 +81,67 @@ export default function Header() {
             <span>Total Paid</span>
             <h5>{tinhTongTien().toLocaleString() + " đ"}</h5>
           </div>
-          <button className="btn btnSignInUp px-5" data-toggle="modal" data-target="#checkout" >Payment</button>
+          <button className="btn btnSignInUp px-5" 
+            data-bs-toggle="modal" data-bs-target="#checkout"
+            onClick={()=>{setOpenCart('')}} >Payment</button>
         </div>
       </div>
      
     )
   }
 
-  return (
-    <header className="header w-100 position-fixed text-light" style ={{background:scroll}}>
-      <div className="dropdown rounded __cart" data-totalitems={quantityCart}>
-        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-shopping-cart bx-tada text-light"></i>
-        </button>
-        {renderCart()}
+  function cartNull(){
+    return (
+      <div className ={`dropdown-menu submenu bg-white text-center mt-4 ${openCart}`}>
+        <h5>Giỏ hàng đang rỗng</h5>
       </div>
+    )
+  }
 
 
 
-     
-        
-      <div className="container pt-3 text-center">
-        {/* NAVBAR */}
-        <nav className="navbar navbar-expand-lg navbar-dark">
-          <a className="navbar-brand" href="#"><img src={logo} alt={logo} /></a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
+
+
+  
+  return (
+    <header className="header position-fixed w-100" style ={{background:scroll}}>
+      <div className="dropdown rounded __cart" data-totalitems={quantityCart}>
+          <button type="button" onClick={()=>{setOpenCart(openCart === '' ? 'show' : '')}}>
+            <i class="fas fa-shopping-cart bx-tada text-light"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ml-auto border-bottom">
-              <NavMenu/>
-              <li className="nav-item px-3 dropdown"><a className="nav-link text-white dropdown-toggle" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">{taiKhoan !== '' ? taiKhoan : 'PR0FILE'}</a>
-                <ul className="dropdown-menu bg-transparent" aria-labelledby="navbarScrollingDropdown" style={{border:'none'}} >
+          {danhSachGheDangDat.length ? renderCart() : cartNull() }
+        </div> 
+      <nav className="navbar navbar-expand-lg navbar-dark w-100">
+        <div className="container d-flex">
+          <NavLink className="navbar-brand col-xl-5 col-lg-4 text-center" to="/"><img src={logo} alt={logo} /></NavLink>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end col-xl-7 " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <NavLink className="navbar-brand col-xl-5 col-lg-4 text-center" to="/"><img src={logo} alt={logo} /></NavLink>
+              <button type="button" class="btn-close text-reset bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <ul className="navbar-nav mx-auto border-bottom text-center">
+              <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item text-uppercase" to='/home'><i class='bx bx-home icnav'></i>Home</NavLink></li>
+              <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item text-uppercase" to='/app'><i class='bx bx-mobile-vibration icnav' ></i>app</NavLink></li>
+              <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item text-uppercase" to='/about'><i class='bx bx-chat icnav'></i>about</NavLink></li>
+              <li className="nav-item px-3"><NavLink className="nav-link text-light nav-item text-uppercase" to='/contact'><i class='bx bx-chat icnav' ></i>contact</NavLink></li>
+              <li className="nav-item px-3 dropdown" onClick={()=>{setOpenCart('')}}><a className="nav-link text-white" href="#" id="a"  data-bs-toggle="dropdown" role="button" aria-expanded="false"><i className='bx bx-id-card icnav'></i>{taiKhoan !== '' ? taiKhoan : 'PR0FILE'}<i className='bx bxs-down-arrow ps-3 pt-1'></i></a>
+                <ul className="dropdown-menu bg-white submenu mt-4" aria-labelledby="a">
                   <li className="nav-item px-3">{taiKhoan === '' ? navDropdown('/login','SIGN IN') : navDropdown('/profile','PR0FILE')}</li>
-                  <li className="nav-item px-3"><NavLink className="nav-link dropdown-item text-light" to="/register">SIGN UP</NavLink></li>
+                  <li className="nav-item px-3"><NavLink className="nav-link dropdown-item text-dark" to="/register"><i className="fas fa-user-plus me-3 icnav"></i>SIGN UP</NavLink></li>
                   {loaiNguoiDung === 'QuanTri' ? <li className="nav-item px-3">{navDropdown('/admin','ADMIN')}</li> : null}
-                  {taiKhoan  !== '' ? <li className="nav-item px-3"><a className="nav-link dropdown-item text-white" onClick ={()=>{dispatch({type:'LOG_OUT'})}} href="#">LOG OUT</a></li> : null}
+                  {taiKhoan  !== '' ? <li className="nav-item px-3"><a className="nav-link dropdown-item text-dark" onClick ={()=>{dispatch({type:'LOG_OUT'})}} href="#"><i class="fas fa-sign-out-alt me-3 icnav"></i>LOG OUT</a></li> : null}
                 </ul>
+                
               </li>
             </ul>
           </div>
-        </nav>
-        
-      </div>
-      
-    </header>
+        </div>
+      </nav>
+    </header>    
   )
 }
+
+

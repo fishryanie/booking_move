@@ -1,0 +1,641 @@
+.checkout {
+  font-family: 'Times New Roman', Times, serif !important;
+  /* CREDIT CARD IMAGE STYLING */
+  /* CHANGEABLE CARD ELEMENTS */
+  /* FRONT OF CARD */
+  /* BACK OF CARD */
+  /* FLIP ANIMATION */
+}
+
+.checkout .modal-dialog .modal-content, .checkout .modal-dialog .modal-body, .checkout .modal-dialog .modal-header {
+  border: none !important;
+}
+
+.checkout .modal-dialog .modal-header .btnAlert {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media (max-width: 992px) {
+  .checkout .modal-dialog {
+    max-width: 650px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .modal-dialog {
+    max-width: 550px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout .modal-dialog {
+    max-width: 500px !important;
+  }
+}
+
+.checkout .sunglasses {
+  -webkit-transition: -webkit-transform 0.15s !important;
+  transition: -webkit-transform 0.15s !important;
+  transition: transform 0.15s !important;
+  transition: transform 0.15s, -webkit-transform 0.15s !important;
+}
+
+.checkout .payment h6 {
+  font-size: 13px !important;
+  height: 35px;
+  line-height: 35px;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment h6 {
+    font-size: 11px !important;
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment h6 {
+    font-size: 10px !important;
+    height: 25px;
+    line-height: 25px;
+  }
+}
+
+.checkout .payment .payment_title {
+  background: #273056;
+  border-radius: 20px 20px 0 0;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_title {
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_title {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.checkout .payment label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment label {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment label {
+    font-size: small;
+  }
+}
+
+.checkout .payment input {
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.checkout .payment input:focus {
+  border-color: #5560ff8a !important;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment input::-webkit-input-placeholder {
+    font-size: medium;
+  }
+  .checkout .payment input:-ms-input-placeholder {
+    font-size: medium;
+  }
+  .checkout .payment input::-ms-input-placeholder {
+    font-size: medium;
+  }
+  .checkout .payment input::placeholder {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment input::-webkit-input-placeholder {
+    font-size: small;
+  }
+  .checkout .payment input:-ms-input-placeholder {
+    font-size: small;
+  }
+  .checkout .payment input::-ms-input-placeholder {
+    font-size: small;
+  }
+  .checkout .payment input::placeholder {
+    font-size: small;
+  }
+}
+
+@media (max-width: 992px) {
+  .checkout .payment input {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment input {
+    font-size: small;
+  }
+}
+
+.checkout .payment .payment_holder .payment_holder_footer {
+  background: #ddd;
+  border-radius: 0 0 20px 20px;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: medium !important;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_holder .payment_holder_footer {
+    height: 45px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_holder .payment_holder_footer {
+    height: 35px;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.checkout .payment .payment_holder .payment_from {
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_holder .payment_from .ipNumberCard, .checkout .payment .payment_holder .payment_from .ipCvv {
+    margin-bottom: 0.4rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_holder .payment_from .ipNumberCard, .checkout .payment .payment_holder .payment_from .ipCvv {
+    margin-bottom: 0.3rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_holder .payment_from {
+    padding: 0.8rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_holder .payment_from {
+    padding: 0.5rem !important;
+  }
+}
+
+.checkout .payment .payment_holder .payment_from span {
+  font-size: x-small !important;
+}
+
+.checkout .payment .payment_total {
+  color: #000;
+}
+
+.checkout .payment .payment_total .barcode {
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total .barcode {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_total .barcode {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.checkout .payment .payment_total .payment_total_body {
+  padding-bottom: 13px;
+  border-left: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total .payment_total_body {
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_total .payment_total_body {
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total .payment_total_body .vat {
+    padding-bottom: 3px !important;
+  }
+}
+
+.checkout .payment .payment_total .payment_total_body .sumTotal {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total .payment_total_body .sumTotal {
+    padding-top: .97rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_total .payment_total_body .sumTotal {
+    padding-top: .9rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout .payment .payment_total .payment_total_body .sumTotal {
+    padding-bottom: 7px !important;
+  }
+}
+
+.checkout .payment .payment_total .btnPayment {
+  border: none;
+  outline: none;
+  color: #fff !important;
+  font-size: 18px;
+  border-radius: 0 0 20px 20px;
+  height: 50px;
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total .btnPayment {
+    height: 45px;
+    border-radius: 0 0 15px 15px;
+    font-size: medium !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_total .btnPayment {
+    height: 35px;
+    border-radius: 0 0 10px 10px;
+    font-size: medium !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .checkout .payment .payment_total h5 {
+    font-size: larger;
+  }
+  .checkout .payment .payment_total h4 {
+    font-size: 23px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .payment .payment_total h5 {
+    font-size: large;
+  }
+  .checkout .payment .payment_total h4 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout .payment .payment_total h5 {
+    font-size: medium;
+  }
+  .checkout .payment .payment_total h4 {
+    font-size: 18px !important;
+  }
+}
+
+.checkout .field-container {
+  position: relative !important;
+}
+
+.checkout .ccicon {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 60px;
+  height: 35px;
+}
+
+@media (max-width: 992px) {
+  .checkout .ccicon {
+    width: 50px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .ccicon {
+    width: 40px;
+    height: 25px;
+  }
+}
+
+.checkout .preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+.checkout .container_creditcard {
+  text-align: right;
+  width: 100%;
+  max-width: 400px;
+  max-height: 250px;
+  height: 54vw;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .checkout .container_creditcard {
+    max-height: 200px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout .container_creditcard {
+    max-height: 150px !important;
+  }
+}
+
+.checkout #ccsingle {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.checkout #ccsingle svg {
+  width: 100px;
+  max-height: 50px;
+}
+
+.checkout .creditcard svg#cardfront,
+.checkout .creditcard svg#cardback {
+  width: 100%;
+  -webkit-box-shadow: 1px 5px 6px 0px black;
+  box-shadow: 1px 5px 6px 0px black;
+  border-radius: 22px;
+}
+
+.checkout #generatecard {
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 4px;
+  background-color: #909090;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.checkout .creditcard .lightcolor,
+.checkout .creditcard .darkcolor {
+  -webkit-transition: fill .5s;
+  transition: fill .5s;
+}
+
+.checkout .creditcard .lightblue {
+  fill: #03A9F4;
+}
+
+.checkout .creditcard .lightbluedark {
+  fill: #0288D1;
+}
+
+.checkout .creditcard .red {
+  fill: #ef5350;
+}
+
+.checkout .creditcard .reddark {
+  fill: #d32f2f;
+}
+
+.checkout .creditcard .purple {
+  fill: #ab47bc;
+}
+
+.checkout .creditcard .purpledark {
+  fill: #7b1fa2;
+}
+
+.checkout .creditcard .cyan {
+  fill: #26c6da;
+}
+
+.checkout .creditcard .cyandark {
+  fill: #0097a7;
+}
+
+.checkout .creditcard .green {
+  fill: #66bb6a;
+}
+
+.checkout .creditcard .greendark {
+  fill: #388e3c;
+}
+
+.checkout .creditcard .lime {
+  fill: #d4e157;
+}
+
+.checkout .creditcard .limedark {
+  fill: #afb42b;
+}
+
+.checkout .creditcard .yellow {
+  fill: #ffeb3b;
+}
+
+.checkout .creditcard .yellowdark {
+  fill: #f9a825;
+}
+
+.checkout .creditcard .orange {
+  fill: #ff9800;
+}
+
+.checkout .creditcard .orangedark {
+  fill: #ef6c00;
+}
+
+.checkout .creditcard .grey {
+  fill: #bdbdbd;
+}
+
+.checkout .creditcard .greydark {
+  fill: #616161;
+}
+
+.checkout #svgname {
+  text-transform: uppercase;
+}
+
+.checkout #cardfront .st2 {
+  fill: #FFFFFF;
+}
+
+.checkout #cardfront .st3 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
+}
+
+.checkout #cardfront .st4 {
+  font-size: 54.7817px;
+}
+
+.checkout #cardfront .st5 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+}
+
+.checkout #cardfront .st6 {
+  font-size: 33.1112px;
+}
+
+.checkout #cardfront .st7 {
+  opacity: 0.6;
+  fill: #FFFFFF;
+}
+
+.checkout #cardfront .st8 {
+  font-size: 24px;
+}
+
+.checkout #cardfront .st9 {
+  font-size: 36.5498px;
+}
+
+.checkout #cardfront .st10 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+}
+
+.checkout #cardfront .st11 {
+  font-size: 16.1716px;
+}
+
+.checkout #cardfront .st12 {
+  fill: #4C4C4C;
+}
+
+.checkout #cardback .st0 {
+  fill: none;
+  stroke: #0F0F0F;
+  stroke-miterlimit: 10;
+}
+
+.checkout #cardback .st2 {
+  fill: #111111;
+}
+
+.checkout #cardback .st3 {
+  fill: #F2F2F2;
+}
+
+.checkout #cardback .st4 {
+  fill: #D8D2DB;
+}
+
+.checkout #cardback .st5 {
+  fill: #C4C4C4;
+}
+
+.checkout #cardback .st6 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+}
+
+.checkout #cardback .st7 {
+  font-size: 27px;
+}
+
+.checkout #cardback .st8 {
+  opacity: 0.6;
+}
+
+.checkout #cardback .st9 {
+  fill: #FFFFFF;
+}
+
+.checkout #cardback .st10 {
+  font-size: 24px;
+}
+
+.checkout #cardback .st11 {
+  fill: #EAEAEA;
+}
+
+.checkout #cardback .st12 {
+  font-family: 'Rock Salt', cursive;
+}
+
+.checkout #cardback .st13 {
+  font-size: 37.769px;
+}
+
+.checkout .creditcard {
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: -webkit-transform 0.6s !important;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s !important;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  cursor: pointer;
+}
+
+.checkout .creditcard .front,
+.checkout .creditcard .back {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  color: #47525d;
+}
+
+.checkout .creditcard .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.checkout .creditcard.flipped {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.btnPayment:hover ~ .iucheckout .sunglasses {
+  -webkit-transform: translateY(-40px) !important;
+          transform: translateY(-40px) !important;
+}
+
+.btnPayment:active ~ .iucheckout #right_eye {
+  display: none;
+}
+/*# sourceMappingURL=Checkout.css.map */

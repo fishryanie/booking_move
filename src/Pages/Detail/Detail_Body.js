@@ -60,10 +60,10 @@ export default function Detail_Body() {
           {/* NAV-TAB */}
           <div>
             <nav>
-              <div className="nav nav-pills mb-3 justify-content-center" id="nav-tab" role="tablist">
-                <a className="nav-link nav-tab-content mx-5" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">SUMERY</a>
-                <a className="nav-link nav-tab-content mx-5 active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class='bx bx-comment-detail mx-3'></i>REVIEW</a>
-                <a className="nav-link nav-tab-content mx-5" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class='bx bx-calendar mx-3'></i>PLAN</a>
+              <div className="nav nav-pills d-flex justify-content-around" id="nav-tab" role="tablist">
+                <a className="nav-link nav-tab-content mx-3" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class='bx bx-detail me-3'></i>SUMERY</a>
+                <a className="nav-link nav-tab-content mx-3 active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class='bx bx-comment-detail me-3'></i>REVIEW</a>
+                <a className="nav-link nav-tab-content mx-3" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class='bx bx-calendar me-3'></i>PLAN</a>
               </div>
             </nav>
             <div className="tab-content" id="nav-tabContent">

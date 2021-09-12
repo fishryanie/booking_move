@@ -1,8 +1,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useForm } from "react-hook-form";
 import { LoginAction } from '../../Redux/Actions/UserAction';
 import { NavLink } from 'react-router-dom';
@@ -35,52 +34,50 @@ const Input = styled.input`
   border-bottom:1px solid white !important;
 `
 export default function Login() {
-    const dispatch = useDispatch();
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data) => {
-      console.log(data);
-      let userLogin = {
-          "taiKhoan": data.userName,
-          "matKhau": data.passWord
-      };
-      dispatch(LoginAction(userLogin));
-    }
+  const dispatch = useDispatch();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    let userLogin = {
+        "taiKhoan": data.userName,
+        "matKhau": data.passWord
+    };
+    dispatch(LoginAction(userLogin));
+  }
     
 
-    return (
-        <section className="Login backgroundLogin_register">
-            <LoginContent className="animate__animated animate__backInDown">
-                <h3 className="text-center text-success">PLEASE LOGIN</h3>
-                <h1 className="text-center text-white mb-5">TO USE THE SERVICE</h1>
-                <form className="" onSubmit={handleSubmit(onSubmit)} className="text-light">
-                    <div className="col-md-12 mb-5">
-                        <label>USER NAME <span className="text-danger mb-2">*</span></label>
-                        <Input placeholder="Enter Your Username" type="text"  {...register("userName", { required: true })} />
-                        {errors?.userName?.type === 'required' && <span className="text-danger font-italic" style={{fontSize:'15px',}}>This field is required</span>}
-                    </div>
-                    <div className="col-md-12 mb-4">
-                        <label>PASS WORD <span className="text-danger mb-2">*</span></label>
-                        <Input placeholder="Enter Your Password" type="password"{...register("passWord", { required: true })} />
-                        {errors?.passWord?.type === 'required' && <span className="text-danger font-italic" style={{fontSize:'15px',}}>This field is required</span>}
-                    </div>
-                    <div className="checkbox">
-                        <span className=""><input className="" type="checkbox" />Remember Password</span>
-                        <NavLink className="text-right text-light font-italic" style={{fontSize:'15px',}}  to="">Forrgot passWord</NavLink>
-                    </div>
-                    <div className="col-12 text-center mt-5 mb-3">
-                        <BtnLodgin className="btnLogin rounded-pill text-light px-5 p-2" type="submit" >Login</BtnLodgin>
-                    </div>
-                    <div className="text-center mb-4">Don't have an account? <NavLink className='text-success' to={"/register"}>Sign up now </NavLink></div>
-                    <div className="d-flex">
-                        <hr/>
-                        <div className=" text-center px-5">OR</div>
-                        <hr/>
-                    </div>
-                    
-                    <IconShare/>
-                    
-                </form>
-            </LoginContent>
-        </section>
-    )
+  return (
+    <section className="Login backgroundLogin_register px-4">
+      <LoginContent className="">
+        <h3 className="text-center text-success">PLEASE LOGIN</h3>
+        <h1 className="text-center text-white mb-5">TO USE THE SERVICE</h1>
+        <form className="" onSubmit={handleSubmit(onSubmit)} className="text-light">
+          <div className="col-md-12 mb-5">
+            <label>USER NAME <span className="text-danger mb-2">*</span></label>
+            <Input placeholder="Enter Your Username" type="text"  {...register("userName", { required: true })} />
+            {errors?.userName?.type === 'required' && <span className="text-danger font-italic" style={{fontSize:'15px',}}>This field is required</span>}
+          </div>
+          <div className="col-md-12 mb-4">
+            <label>PASS WORD <span className="text-danger mb-2">*</span></label>
+            <Input placeholder="Enter Your Password" type="password"{...register("passWord", { required: true })} />
+            {errors?.passWord?.type === 'required' && <span className="text-danger font-italic" style={{fontSize:'15px',}}>This field is required</span>}
+          </div>
+          <div className="checkbox">
+            <span className=""><input className="" type="checkbox" />Remember Password</span>
+            <NavLink className="text-right text-light font-italic" style={{fontSize:'15px',}}  to="">Forrgot passWord</NavLink>
+          </div>
+          <div className="col-12 text-center mt-5 mb-3">
+            <BtnLodgin className="btnLogin rounded-pill text-light px-5 p-2" type="submit" >Login</BtnLodgin>
+          </div>
+          <div className="text-center mb-4">Don't have an account? <NavLink className='text-success' to={"/register"}>Sign up now </NavLink></div>
+          <div className="d-flex">
+            <hr/>
+            <div className=" text-center px-5">OR</div>
+            <hr/>
+          </div>
+          <IconShare/>
+        </form>
+      </LoginContent>
+    </section>
+  )
 }
