@@ -17,7 +17,7 @@ export default function Detail_Plan() {
           <div className="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             {chiTietPhim.heThongRapChieu?.map((heThongRap, index) => {
               let activeClass = index === 0 ? 'active' : '';
-              return <a key={index} className={`nav-link ${activeClass} text-center mt-5 `} id="a" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls={heThongRap.maHeThongRap} aria-selected="true">
+              return <a key={index} className={`nav-link ${activeClass} text-center mt-5 `} id="a" data-bs-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls={heThongRap.maHeThongRap} aria-selected="true">
                 <div className="rounded-circle avata p-1 mx-auto mb-2">
                   <img className="rounded-circle w-100 h-100" src={heThongRap.logo}/>
                 </div>

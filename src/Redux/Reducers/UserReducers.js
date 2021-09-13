@@ -1,5 +1,7 @@
 
-let account = localStorage.getItem("taiKhoan") ? JSON.parse(localStorage.getItem("taiKhoan")) : '';
+
+
+var account = localStorage.getItem("taiKhoan") ? JSON.parse(localStorage.getItem("taiKhoan")) : '';
 
 
 
@@ -40,9 +42,9 @@ export const UserReducer = (state = stateDefault, action) => {
             return {...state}
         }
         case 'LOG_OUT':{
-            localStorage.removeItem("taiKhoan");
-            window.location.reload()
-            return {...state}
+          localStorage.removeItem("taiKhoan");
+          window.location.reload()
+          return {...state}
         }
         case 'Get_List_User' : {
             state.listUser = [...action.listUser];

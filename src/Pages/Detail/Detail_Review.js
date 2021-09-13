@@ -14,7 +14,7 @@ import Box from '@material-ui/core/Box';
 
 
 export default function Detail_Review() {
-  const {taiKhoan} = useSelector(state=>state.UserReducer);
+  const account = useSelector(state => state.UserReducer.account);
   const binhLuan = useSelector(state => state.UserReducer.comment);
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
@@ -26,7 +26,7 @@ export default function Detail_Review() {
   const onSubmit = (comment,e) => { 
     e.target.reset();
     let objComment = {
-      tenNguoiDung: taiKhoan,
+      tenNguoiDung: account?.taiKhoan,
       rating: value,
       noiDung: comment.noiDung,
       avata: avata_user
@@ -42,7 +42,7 @@ export default function Detail_Review() {
   return (
     <section className="detail_review">
       {/* ALERT ERR */}
-      <Collapse in={open}>
+      <Collapse className="mt-2" in={open}>
         <Alert severity="error" action = { 
           <IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpen(false)}}>
             <CloseIcon fontSize="inherit" />  
@@ -58,7 +58,7 @@ export default function Detail_Review() {
         </div>
         <div className="col-sm-5 col-md-6">
           <input className="h-100 w-100 px-3 bg-transparent text-white " disabled={open} 
-            onClick={() => { setOpen(taiKhoan === '' ? true : false) }} 
+            onClick={() => { setOpen(account === '' ? true : false) }} 
             placeholder="Bạn nghĩ gì về phim này" 
             {...register('noiDung', { required: true })} />
         </div>
