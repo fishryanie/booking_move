@@ -2,6 +2,7 @@ import React,{useEffect, useState, Fragment} from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { layThongTinChiTietPhimAction } from '../../Redux/Actions/FilmAction'
 import { NavLink } from 'react-router-dom'
+import { history } from '../../App'
 import moment from "moment"
 import styled from 'styled-components'
 import imgDate from '../../Assets/Images/ImageDialog/date.png'
@@ -17,40 +18,38 @@ const Type = styled.div `color: #31d7a9; font-size: 16px; padding-left: 8px; @me
 
 export default function SearchFilm(props) {
   const dispatch = useDispatch()
-  useEffect(()=>{dispatch(layThongTinChiTietPhimAction(props.idFilm))},[props.idFilm])
   const ArrayFilm = useSelector(state => state.FilmReducers.ArrayFilm);
   const chiTietPhim = useSelector(state => state.FilmReducers.DetailFilm);
-  
-  
-
-  const [closeModal, setCloseModal] = useState('')
   const [alert, setAlert] = useState(false);
   const [show0, set0] = useState('')
   const [show1, set1] = useState('')
   const [show2, set2] = useState('')
   const [show3, set3] = useState('')
   const [searchValue, setsearchValue] = useState('');
-  const [vaidate, setValidate] = useState('')
+  const [closeModal, setCloseModal] = useState('')
   const [option, setOption] = useState({
     movieId: chiTietPhim?.maPhim, movieTitle:chiTietPhim?.tenPhim,
     cinemaSystemId:'',cinemaSystemTitle:'Chọn hệ thống rạp',cinemaSystemLogo:`${imgCity}`,
     cinemaId:'', cinemaTitle:'Chọn cụm rạp',
     showTimeId:'', showTimeTitle:'Chọn thời gian chiếu'
   })
- 
+
+  useEffect(()=>{dispatch(layThongTinChiTietPhimAction(props.idFilm))},[props.idFilm])
+  useEffect(()=>setCloseModal(option.showTimeId !== '' ? 'modal' : '') ,[option.showTimeId])
+
 
   const handleSearch = ({ target: { value } }) => setsearchValue(value);
   const handleOptionInput = (id,title) => setOption((option) => ({...option, movieId:id, movieTitle:title}))
   const handleOptionHeThongRap = (id, title, logo) => setOption((option) => ({...option, cinemaSystemId:id, cinemaSystemTitle:title,cinemaSystemLogo:logo}))
   const handleOptionCumRap = (id, title) => setOption((option) => ({...option, cinemaId:id, cinemaTitle:title}))
   const handleOptionShowTime = (id, title) => setOption((option) => ({...option, showTimeId:id, showTimeTitle:title }))
-      
-   
-  
   const handleMoveSeatPlan = () => {
-    if(option.showTimeId !== '' ) { setValidate(`/seat/${option.showTimeId}`); setCloseModal('modal');}
-    else setAlert(true); setTimeout(()=>{ setAlert(false) }, 5000);
+    if(option.showTimeId === '') {setAlert(true); setTimeout(()=> setAlert(false) , 5000)} 
+    else{history.push(`/seat/${option.showTimeId}`)}
   }
+
+
+  
 
   const SelectSearch = () => {
     const cartSearch = ArrayFilm.filter(item => item.tenPhim.toLowerCase().includes(searchValue));
@@ -74,7 +73,6 @@ export default function SearchFilm(props) {
       </Fragment>
     )
   }
-
   const SelectHeThongRap = () => {
     return (
       <div className="dropholder d-flex" style={{width:'280px',zIndex:3}}>
@@ -189,7 +187,7 @@ export default function SearchFilm(props) {
               <div className="modal-body-content">
                 <div className="d-flex flex-wrap justify-content-between align-items-center pt-4 px-3">
                   <div className="col-xl-8 col-9 position-relative">{SelectSearch()}</div>
-                  <NavLink className="col-3 btn btnSignInUp" to={vaidate} data-bs-dismiss={closeModal} onClick={handleMoveSeatPlan} >Seat Plan</NavLink>
+                  <button className="col-3 btn btnSignInUp"  data-bs-dismiss={closeModal} onClick={handleMoveSeatPlan} >Seat Plan</button>
                 </div>
                 <div className="d-flex flex-wrap justify-content-between align-items-center pt-4 pb-4 px-2">
                   {SelectHeThongRap()}
