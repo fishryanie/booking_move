@@ -28,7 +28,22 @@ const arrayInfoMember = [
 
 export default function ModelForm(props) {
   const account = useSelector(state=>state.UserReducer.account);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+
+  
+    
+  
+
+  useEffect(() => {
+    if(props.rows != ''){
+      for(let key in props.rows[0]){
+
+        setValue(`${key}` , `${key == 'hinhAnh' ? '' : props.rows[0][key]}`)
+      }
+    }
+  },[props.rows])
+  
+
   const onSubmit = (value) => {
     const dataMovie = {
       maPhim: 0,
@@ -53,10 +68,9 @@ export default function ModelForm(props) {
   
     if(props.typeModel === 'Create member') CreateMemberAction(dataMember)
     if(props.typeModel === 'Create movie') CreateMovieAction(dataMovie)
-   
   }
 
-  console.log(account)
+  console.log(props.rows)
 
 
 
@@ -126,7 +140,7 @@ export default function ModelForm(props) {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" className="btn btn-warning">Thêm</button>
+              <button type="submit" className="btn btn-warning">{props.rows == '' ? 'Save' : 'Update'}</button>
             </div>
           </form>
         </div>

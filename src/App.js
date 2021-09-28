@@ -16,7 +16,7 @@ import Register from './Pages/Login-Register/Register';
 import Main from './Pages/Admin/Main';
 import Seat from './Pages/Seat/Seat'
 import Loading from './Components/Loading/Loading'
-import FilmManagement from './Pages/Admin/FilmManagement';
+
 export const history =  createBrowserHistory();
 
 function App() {
@@ -35,7 +35,6 @@ function App() {
           <HomeTemplate exact path="/login" Component={Login}></HomeTemplate>
           <HomeTemplate exact path="/register" Component={Register}></HomeTemplate>
           <AdminTemplate exact path = "/admin" Component ={Main}></AdminTemplate>
-          <AdminTemplate exact path = "/filmManagement" Component ={FilmManagement}></AdminTemplate>
           <HomeTemplate exact path ="/" Component={Home}></HomeTemplate>
         </Switch>
       </section>

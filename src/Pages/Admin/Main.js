@@ -2,13 +2,18 @@ import React,{useEffect, useState} from 'react'
 import { useSelector, useDispatch} from 'react-redux'
 import { GetListUser } from '../../Redux/Actions/UserAction'
 import { GetListFilm } from "../../Redux/Actions/FilmAction"
-import { DataGrid,GridToolbar } from '@mui/x-data-grid';
+import { GridToolbar ,DataGrid } from '@mui/x-data-grid';
+// import { DataGridPro } from '@mui/x-data-grid-pro';
+// import { DataGrid } from '@material-ui/data-grid';
+import { Checkbox } from "@material-ui/core";
 import moment from "moment"
 import Avatar from '@material-ui/core/Avatar';
 import styled from 'styled-components'
 import bg_admin from '../../Assets/Images/bg-admin.jpeg'
-import '../../Scss/Admin.scss'
+import Toolbar from './Toolbar';
 import ModelForm from './ModelForm';
+import '../../Scss/Admin.scss'
+
 const Background = styled.section`
   height: 100vh;
   width: 100wh;
@@ -25,8 +30,13 @@ const Form = styled.section`
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgb(255 255 255 / 20%);
 `
+
+
 const arrayValue = ['Member management', 'Movie management','Movie schedule management']
+
+
 const columnsUsers = [
+  { field: 'id', headerName: 'Stt', width: 100, editable: true },
   { field: 'hoTen', headerName: 'họ tên', width: 170, editable: true, checkboxSelection:true },
   { field: 'taiKhoan', headerName: 'tài khoản', width: 150, editable: true },
   { field: 'matKhau', headerName: 'mật khẩu', width: 150, editable: true },
@@ -54,9 +64,11 @@ export default function Main() {
   const [showOption, setShowOption] = useState('')
   const [option, setOption] = useState('Chọn loại bảng')
   const [table, setTable] = useState({rows: [], columns:[], btnCreate:'Button'})
+  const [selectionRow, setSelectionModel] = useState([]);
 
 
-  console.log(ArrayFilms)
+  
+
   ArrayUsers.forEach((item, i) => item.id = i + 1);
   ArrayFilms.forEach((item, i) => item.id = i + 1);
 
@@ -67,8 +79,8 @@ export default function Main() {
     }else if(item === 'Movie management'){
       setTable((table) => ({...table, rows: ArrayFilms, columns:columnsFilms, btnCreate: 'Create movie'}))
     }
-
   }
+
   const dispatch = useDispatch()
     useEffect(() => {
       dispatch(GetListUser());
@@ -91,24 +103,22 @@ export default function Main() {
     )
   }
 
+
   return (
     <Background className ="admin d-flex align-items-center">
       <AdminContent className="container w-100">
-        <section className="d-flex mb-3">
-          <div className="col-3">
-            {Select()}
-          </div>
-
-          <button type="button" className="btn btn-outline-warning text-white ms-3 px-4 position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i className='bx bx-chevron-right position-absolute me-2 fs-3 start-0'></i>
-            {table.btnCreate}
-          </button>
-        </section>
+        <section className="col-3 mb-3">{Select()}</section>
         <Form className="bg-white px-0 ">
-          <DataGrid  className="rounded-3 text-center" rows={table.rows} columns={table.columns} components={{Toolbar: GridToolbar,}}  checkboxSelection disableSelectionOnClick />
+          <DataGrid  className="rounded-3 text-center" 
+            checkboxSelection
+            components={{Toolbar}}  
+            rows={table.rows} columns={table.columns} 
+            componentsProps={{ toolbar: { btn: table.btnCreate, selectionRow } }}  
+            onSelectionModelChange={ids => setSelectionModel(table.rows.filter(row => new Set(ids).has(row.id)))}
+          />
         </Form>
       </AdminContent>
-      <ModelForm typeModel={table.btnCreate}></ModelForm>
+      <ModelForm typeModel={table.btnCreate} rows={selectionRow}></ModelForm>
     </Background>
   )
 }
